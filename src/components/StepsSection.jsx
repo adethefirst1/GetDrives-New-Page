@@ -2,7 +2,7 @@ const steps = [
   {
     n: "01",
     title: "SIGN UP ONLINE",
-    body: "Complete a short application with your details — it only takes a few minutes.",
+    body: "Complete a short application with your details. It only takes a few minutes.",
   },
   {
     n: "02",
@@ -12,7 +12,7 @@ const steps = [
   {
     n: "03",
     title: "GET APPROVED",
-    body: "Our team reviews your profile — most drivers hear back within 24 hours.",
+    body: "Our team reviews your profile. Most drivers hear back within 24 hours.",
   },
   {
     n: "04",

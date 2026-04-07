@@ -1,11 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import {
-  CTA_DOWNLOAD_LABEL,
-  CTA_DRIVER_LABEL,
-  PATH_DOWNLOAD,
-  PATH_DRIVE_WITH_US,
-} from "../ctaCopy";
+import { PATH_DOWNLOAD, PATH_DRIVE_WITH_US } from "../ctaCopy";
 import { useAccessibleMotion } from "../motionPresets";
 
 const MotionLink = motion(Link);
@@ -37,14 +32,14 @@ export default function CTASection({ variant = "services" }) {
               className="w-full rounded-md bg-white px-6 py-3.5 text-center text-sm font-bold uppercase tracking-wide text-brand-bg hover:opacity-95 md:w-auto"
               {...m.buttonHoverProps}
             >
-              {CTA_DOWNLOAD_LABEL}
+              DOWNLOAD THE APP
             </MotionLink>
             <MotionLink
               to={PATH_DRIVE_WITH_US}
               className="w-full rounded-md bg-brand-bg px-6 py-3.5 text-center text-sm font-bold uppercase tracking-wide text-white hover:opacity-95 md:w-auto"
               {...m.buttonHoverProps}
             >
-              {CTA_DRIVER_LABEL}
+              DRIVE WITH US
             </MotionLink>
           </div>
         </div>
@@ -95,14 +90,14 @@ export default function CTASection({ variant = "services" }) {
               className="w-full rounded-md bg-white px-6 py-3.5 text-center text-sm font-bold uppercase tracking-wide text-brand-bg hover:opacity-95 md:w-auto"
               {...m.buttonHoverProps}
             >
-              {CTA_DOWNLOAD_LABEL}
+              DOWNLOAD THE APP
             </MotionLink>
             <MotionLink
               to={PATH_DRIVE_WITH_US}
               className="w-full rounded-md bg-brand-bg px-6 py-3.5 text-center text-sm font-bold uppercase tracking-wide text-white hover:opacity-95 md:w-auto"
               {...m.buttonHoverProps}
             >
-              {CTA_DRIVER_LABEL}
+              DRIVE WITH GETDRIVES
             </MotionLink>
           </div>
         </div>
@@ -123,14 +118,14 @@ export default function CTASection({ variant = "services" }) {
             className="w-full rounded-md bg-white px-6 py-3.5 text-center text-sm font-bold uppercase tracking-wide text-brand-bg hover:opacity-95 md:w-auto"
             {...m.buttonHoverProps}
           >
-            {CTA_DOWNLOAD_LABEL}
+            GET THE APP
           </MotionLink>
           <MotionLink
-            to={PATH_DRIVE_WITH_US}
+            to="/about#contact"
             className="w-full rounded-md bg-brand-bg px-6 py-3.5 text-center text-sm font-bold uppercase tracking-wide text-white hover:opacity-95 md:w-auto"
             {...m.buttonHoverProps}
           >
-            {CTA_DRIVER_LABEL}
+            TALK TO US
           </MotionLink>
         </div>
       </div>

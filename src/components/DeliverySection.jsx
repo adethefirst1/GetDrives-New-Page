@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { CTA_DOWNLOAD_LABEL, PATH_DOWNLOAD } from "../ctaCopy";
+import { PATH_DOWNLOAD } from "../ctaCopy";
 import FlowImageCluster from "./FlowImageCluster";
 import TagRow from "./TagRow";
 import { useAccessibleMotion } from "../motionPresets";
@@ -29,7 +29,7 @@ export default function DeliverySection() {
       <div className="mx-auto grid min-w-0 max-w-7xl items-center gap-8 px-6 md:gap-12 lg:grid-cols-2 lg:gap-16">
         <motion.div className="space-y-6" {...m.splitText}>
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-orange">
-            {"02 — LOGISTICS & DELIVERY"}
+            02 / LOGISTICS & DELIVERY
           </p>
           <h2 className="font-extrabold uppercase leading-[0.95] tracking-tighter text-[clamp(1.75rem,4vw,2.75rem)] text-white">
             <span className="block">SEND IT.</span>
@@ -46,7 +46,7 @@ export default function DeliverySection() {
             className="mt-2 inline-flex w-full items-center justify-center rounded-md bg-brand-orange px-6 py-3.5 text-center text-sm font-bold uppercase tracking-wide text-white md:w-auto md:max-w-md"
             {...m.buttonHoverProps}
           >
-            {CTA_DOWNLOAD_LABEL}
+            SEND A PACKAGE
           </MotionLink>
         </motion.div>
 

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { CTA_DRIVER_LABEL, PATH_DRIVE_WITH_US } from "../ctaCopy";
+import { PATH_DRIVE_WITH_US } from "../ctaCopy";
 import { useAccessibleMotion } from "../motionPresets";
 
 const MotionLink = motion(Link);
@@ -33,7 +33,7 @@ export default function DriverHero() {
             <span className="block text-brand-orange">INCOME.</span>
           </h1>
           <p className="mt-8 w-full max-w-[90%] text-base leading-relaxed text-brand-gray sm:max-w-xl">
-            Drive on your schedule, earn on your terms — transparent payouts, fair
+            Drive on your schedule, earn on your terms, with transparent payouts, fair
             commissions, and no surge games cutting into what you keep.
           </p>
           <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
@@ -50,7 +50,7 @@ export default function DriverHero() {
               className="inline-flex w-full items-center justify-center rounded-md border border-white bg-transparent px-6 py-3.5 text-sm font-bold uppercase tracking-wide text-white hover:bg-white/5 md:w-auto"
               {...m.buttonHoverProps}
             >
-              {CTA_DRIVER_LABEL}
+              DRIVE WITH US
             </MotionLink>
           </div>
         </motion.div>

@@ -1,4 +1,4 @@
-/** Subtle motion presets — respects prefers-reduced-motion (opacity-only when reduced) */
+/** Subtle motion presets. Respects prefers-reduced-motion (opacity-only when reduced). */
 
 import { useReducedMotion } from "framer-motion";
 

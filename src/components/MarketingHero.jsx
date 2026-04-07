@@ -1,11 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import {
-  CTA_DOWNLOAD_LABEL,
-  CTA_DRIVER_LABEL,
-  PATH_DOWNLOAD,
-  PATH_DRIVE_WITH_US,
-} from "../ctaCopy";
+import { PATH_DOWNLOAD } from "../ctaCopy";
 import { useAccessibleMotion } from "../motionPresets";
 
 const MotionLink = motion(Link);
@@ -20,7 +15,7 @@ export default function MarketingHero() {
           <div className="mb-6 flex items-center gap-3">
             <span className="h-px w-8 bg-brand-orange" aria-hidden />
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-brand-orange">
-              YOUR TRIP, YOUR PRICE
+              DRIVE WITH CONFIDENCE
             </p>
           </div>
           <h1 className="font-extrabold uppercase leading-[0.95] tracking-tighter text-4xl sm:text-5xl md:text-6xl lg:text-7xl">
@@ -31,23 +26,23 @@ export default function MarketingHero() {
             <span className="block break-words text-white">WE DRIVE.</span>
           </h1>
           <p className="mt-6 max-w-[90%] text-base leading-relaxed text-brand-gray sm:mt-8 sm:max-w-xl md:max-w-xl">
-            One app for rides and delivery. You set the fare, drivers compete, and
-            you choose your ride.
+            GetDrives connects riders and drivers on your terms. Name your fare,
+            compare offers, and move with transparency across every trip.
           </p>
           <div className="mt-8 flex flex-col gap-4 sm:mt-10 sm:flex-row sm:items-center">
-            <MotionLink
-              to={PATH_DOWNLOAD}
+            <motion.a
+              href="#drivers"
               className="inline-flex w-full items-center justify-center rounded-md bg-brand-orange px-6 py-3.5 text-center text-sm font-bold uppercase tracking-wide text-white hover:opacity-95 md:w-auto"
               {...m.buttonHoverProps}
             >
-              {CTA_DOWNLOAD_LABEL}
-            </MotionLink>
+              BECOME A DRIVER
+            </motion.a>
             <MotionLink
-              to={PATH_DRIVE_WITH_US}
+              to={PATH_DOWNLOAD}
               className="inline-flex w-full items-center justify-center rounded-md border border-white bg-transparent px-6 py-3.5 text-center text-sm font-bold uppercase tracking-wide text-white hover:bg-white/5 md:w-auto"
               {...m.buttonHoverProps}
             >
-              {CTA_DRIVER_LABEL}
+              DOWNLOAD APP
             </MotionLink>
           </div>
         </motion.div>

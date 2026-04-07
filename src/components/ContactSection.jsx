@@ -75,7 +75,7 @@ export default function ContactSection() {
           </h2>
           <p className="mt-6 w-full max-w-[90%] text-base leading-relaxed text-brand-gray sm:max-w-md">
             Have a question, partnership idea, or press inquiry? Send us a
-            message — our team will get back to you.
+            message. Our team will get back to you.
           </p>
 
           <ul className="mt-10 space-y-8 text-sm text-brand-gray">

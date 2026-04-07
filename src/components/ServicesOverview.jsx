@@ -59,7 +59,7 @@ function IconBriefcase({ className }) {
 const cards = [
   {
     title: "CITY RIDES",
-    desc: "Reliable everyday travel across town — quick pickups and routes you trust.",
+    desc: "Reliable everyday travel across town, with quick pickups and routes you trust.",
     Icon: IconCity,
   },
   {

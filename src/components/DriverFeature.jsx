@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { CTA_DRIVER_LABEL, PATH_DRIVE_WITH_US } from "../ctaCopy";
+import { PATH_DRIVE_WITH_US } from "../ctaCopy";
 import { useAccessibleMotion } from "../motionPresets";
 
 const MotionLink = motion(Link);
@@ -46,7 +46,7 @@ export default function DriverFeature() {
             className="mt-2 inline-flex w-full items-center justify-center rounded-md bg-brand-orange px-6 py-3.5 text-center text-sm font-bold uppercase tracking-wide text-white hover:opacity-95 md:w-auto md:max-w-sm"
             {...m.buttonHoverProps}
           >
-            {CTA_DRIVER_LABEL}
+            GET ON THE ROAD
           </MotionLink>
         </motion.div>
 

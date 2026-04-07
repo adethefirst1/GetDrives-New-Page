@@ -10,7 +10,7 @@ export default function ServicesHero() {
           <span className="block text-brand-orange">EVERY JOURNEY.</span>
         </h1>
         <p className="mt-8 w-full max-w-[90%] text-base leading-relaxed text-brand-gray sm:max-w-xl md:max-w-[42%]">
-          Rides, delivery, intercity trips, and corporate travel — all on a platform
+          Rides, delivery, intercity trips, and corporate travel, all on a platform
           where you offer the fare and drivers compete for your business.
         </p>
       </div>

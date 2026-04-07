@@ -82,7 +82,7 @@ function IconSupport({ className }) {
 const benefits = [
   {
     title: "Flexible Hours",
-    body: "Drive when it works for you — peak times or off-peak, you control your schedule.",
+    body: "Drive when it works for you, peak times or off-peak. You control your schedule.",
     Icon: IconClock,
   },
   {
@@ -97,7 +97,7 @@ const benefits = [
   },
   {
     title: "Smart Driver App",
-    body: "Navigation, trips, and earnings in one place — built for life behind the wheel.",
+    body: "Navigation, trips, and earnings in one place, built for life behind the wheel.",
     Icon: IconPhone,
   },
   {
@@ -107,7 +107,7 @@ const benefits = [
   },
   {
     title: "Real Support",
-    body: "Talk to real people when you need help — onboarding, payouts, or on-trip issues.",
+    body: "Talk to real people when you need help: onboarding, payouts, or on-trip issues.",
     Icon: IconSupport,
   },
 ];

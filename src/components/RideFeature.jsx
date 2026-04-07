@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { CTA_DOWNLOAD_LABEL, PATH_DOWNLOAD } from "../ctaCopy";
+import { PATH_DOWNLOAD } from "../ctaCopy";
 import { useAccessibleMotion } from "../motionPresets";
 
 const MotionLink = motion(Link);
@@ -45,7 +45,7 @@ export default function RideFeature() {
             <span className="block">YOUR RIDE.</span>
           </h2>
           <p className="w-full max-w-[90%] text-base leading-relaxed sm:max-w-xl text-brand-gray">
-            Flexibility at every step — set your price, choose your driver, and ride
+            Flexibility at every step: set your price, choose your driver, and ride
             with confidence knowing support is always one tap away.
           </p>
           <div className="flex flex-wrap gap-2">
@@ -63,7 +63,7 @@ export default function RideFeature() {
             className="mt-2 inline-flex w-full items-center justify-center rounded-md bg-brand-orange px-6 py-3.5 text-center text-sm font-bold uppercase tracking-wide text-white hover:opacity-95 md:w-auto md:max-w-sm"
             {...m.buttonHoverProps}
           >
-            {CTA_DOWNLOAD_LABEL}
+            DOWNLOAD THE APP
           </MotionLink>
         </motion.div>
       </div>

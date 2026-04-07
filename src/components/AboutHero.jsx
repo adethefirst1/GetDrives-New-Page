@@ -17,8 +17,8 @@ export default function AboutHero() {
         <p className="mt-8 w-full max-w-[90%] text-base leading-relaxed text-brand-gray sm:max-w-2xl">
           GetDrives was born in Nigeria from a simple idea: that moving through
           African cities should be safe, fair, and built for real life. We&apos;re
-          creating technology where riders set the terms and drivers compete —
-          so communities can connect without compromise.
+          creating technology where riders set the terms and drivers compete, so
+          communities can connect without compromise.
         </p>
         <motion.a
           href="#contact"

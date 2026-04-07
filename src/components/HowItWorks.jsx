@@ -2,7 +2,7 @@ const steps = [
   {
     n: "01",
     title: "SET YOUR DESTINATION",
-    body: "Enter where you are headed and the fare you are comfortable paying — it only takes a moment.",
+    body: "Enter where you are headed and the fare you are comfortable paying. It only takes a moment.",
   },
   {
     n: "02",

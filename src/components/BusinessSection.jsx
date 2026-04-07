@@ -37,7 +37,7 @@ export default function BusinessSection() {
           {...m.splitText}
         >
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-orange">
-            03 — BUSINESS SOLUTIONS
+            03 / BUSINESS SOLUTIONS
           </p>
           <h2 className="font-extrabold uppercase leading-[0.95] tracking-tighter text-[clamp(1.75rem,4vw,2.75rem)] text-white">
             <span className="block">MANAGE TRAVEL.</span>

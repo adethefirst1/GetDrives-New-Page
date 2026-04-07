@@ -14,7 +14,7 @@ export default function MissionVision() {
             </h2>
             <p className="mt-6 text-base leading-relaxed text-brand-gray">
               Freedom of movement should never be a luxury. We&apos;re building a
-              platform that keeps rides within reach — transparent fares, safer
+              platform that keeps rides within reach: transparent fares, safer
               trips, and options that work for everyday journeys across the
               continent.
             </p>
@@ -31,7 +31,7 @@ export default function MissionVision() {
             </h2>
             <p className="mt-6 text-base leading-relaxed text-brand-gray">
               We see a connected Africa where people and goods move with
-              confidence — cities linked by trust, drivers paid fairly, and
+              confidence: cities linked by trust, drivers paid fairly, and
               technology that puts communities first.
             </p>
           </div>

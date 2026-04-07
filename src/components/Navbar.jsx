@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { CTA_DRIVER_LABEL, PATH_DRIVE_WITH_US } from "../ctaCopy";
+import { PATH_DRIVE_WITH_US } from "../ctaCopy";
 import Logo from "./Logo";
 import { useAccessibleMotion } from "../motionPresets";
 
@@ -127,7 +127,7 @@ export default function Navbar() {
             className="relative hidden rounded-md bg-brand-orange px-6 py-3.5 text-xs font-bold uppercase tracking-wide text-white hover:opacity-95 md:inline-flex"
             {...m.buttonHoverProps}
           >
-            {CTA_DRIVER_LABEL}
+            START DRIVING
           </MotionLink>
 
           <button
@@ -192,7 +192,7 @@ export default function Navbar() {
                   {...m.buttonHoverProps}
                   onClick={close}
                 >
-                  {CTA_DRIVER_LABEL}
+                  START DRIVING
                 </MotionLink>
               </div>
             </motion.nav>

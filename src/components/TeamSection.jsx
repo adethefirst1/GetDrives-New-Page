@@ -29,7 +29,7 @@ const team = [
   {
     name: "ABAYOMI NWOSU",
     role: "CTO & CO-FOUNDER",
-    bio: "Owns the product and engineering roadmap — shipping a platform riders and drivers can rely on every day.",
+    bio: "Owns the product and engineering roadmap, shipping a platform riders and drivers can rely on every day.",
   },
   {
     name: "AKANJI AISHAT",
