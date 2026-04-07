@@ -10,11 +10,13 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-brand-bg">
       <Navbar />
+      <main id="main-content">
       <AboutHero />
       <MissionVision />
       <TeamSection />
       <ContactSection />
       <CTASection variant="about" />
+      </main>
       <Footer variant="about" />
     </div>
   );

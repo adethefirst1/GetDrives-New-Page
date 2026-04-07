@@ -14,6 +14,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-brand-bg">
       <Navbar />
+      <main id="main-content">
       <MarketingHero />
       <StatsBar variant="home" />
       <CategoryStrip />
@@ -23,6 +24,7 @@ export default function HomePage() {
       <HowItWorks />
       <FeaturesStrip />
       <CTASection variant="landing" />
+      </main>
       <Footer variant="home" />
     </div>
   );

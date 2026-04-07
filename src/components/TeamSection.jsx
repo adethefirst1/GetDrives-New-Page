@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { cardItemVariants, cardListVariants, inView } from "../motionPresets";
+import { inView, useAccessibleMotion } from "../motionPresets";
 
 function PersonIcon({ className = "h-14 w-14" }) {
   return (
@@ -39,8 +39,10 @@ const team = [
 ];
 
 export default function TeamSection() {
+  const m = useAccessibleMotion();
+
   return (
-    <section className="py-20 md:py-24">
+    <section className="py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-6">
         <p className="text-xs font-semibold uppercase tracking-[0.35em] text-brand-orange">
           THE TEAM
@@ -51,17 +53,17 @@ export default function TeamSection() {
         </h2>
 
         <motion.div
-          className="mt-12 grid gap-12 md:grid-cols-3 md:gap-12"
+          className="mt-10 grid gap-8 md:mt-12 md:grid-cols-3 md:gap-12"
           initial="hidden"
           whileInView="show"
           viewport={inView}
-          variants={cardListVariants}
+          variants={m.cardListVariants}
         >
           {team.map((member) => (
             <motion.article
               key={member.name}
               className="flex h-full flex-col rounded-xl border border-white/[0.06] bg-brand-bg p-6"
-              variants={cardItemVariants}
+              variants={m.cardItemVariants}
             >
               <PersonIcon />
               <h3 className="mt-5 font-bold uppercase tracking-tight text-white">

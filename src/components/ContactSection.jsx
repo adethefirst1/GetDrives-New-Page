@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { buttonHoverProps } from "../motionPresets";
+import { useAccessibleMotion } from "../motionPresets";
 
 function IconPhone({ className }) {
   return (
@@ -60,9 +60,11 @@ function IconMap({ className }) {
 }
 
 export default function ContactSection() {
+  const m = useAccessibleMotion();
+
   return (
-    <section id="contact" className="py-20 md:py-24">
-      <div className="mx-auto grid max-w-7xl gap-12 px-6 md:grid-cols-2 md:gap-16">
+    <section id="contact" className="py-16 md:py-24">
+      <div className="mx-auto grid min-w-0 max-w-7xl gap-8 px-6 md:grid-cols-2 md:gap-16">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.35em] text-brand-orange">
             GET IN TOUCH
@@ -71,7 +73,7 @@ export default function ContactSection() {
             <span className="block">{"WE'D LOVE TO"}</span>
             <span className="block">HEAR FROM YOU.</span>
           </h2>
-          <p className="mt-6 max-w-md text-base leading-relaxed text-brand-gray">
+          <p className="mt-6 w-full max-w-[90%] text-base leading-relaxed text-brand-gray sm:max-w-md">
             Have a question, partnership idea, or press inquiry? Send us a
             message — our team will get back to you.
           </p>
@@ -145,8 +147,9 @@ export default function ContactSection() {
               id="name"
               name="name"
               type="text"
+              autoComplete="name"
               placeholder="Your Name"
-              className="w-full rounded-md border border-gray-800 bg-transparent px-4 py-3 text-sm text-white placeholder:text-brand-gray focus:border-brand-orange focus:outline-none"
+              className="min-h-[44px] w-full rounded-md border border-gray-800 bg-transparent px-4 py-3 text-sm text-white placeholder:text-brand-gray focus:border-brand-orange focus:outline-none"
             />
           </div>
           <div>
@@ -157,8 +160,9 @@ export default function ContactSection() {
               id="email"
               name="email"
               type="email"
+              autoComplete="email"
               placeholder="Email Address"
-              className="w-full rounded-md border border-gray-800 bg-transparent px-4 py-3 text-sm text-white placeholder:text-brand-gray focus:border-brand-orange focus:outline-none"
+              className="min-h-[44px] w-full rounded-md border border-gray-800 bg-transparent px-4 py-3 text-sm text-white placeholder:text-brand-gray focus:border-brand-orange focus:outline-none"
             />
           </div>
           <div>
@@ -169,8 +173,9 @@ export default function ContactSection() {
               id="subject"
               name="subject"
               type="text"
+              autoComplete="off"
               placeholder="Subject"
-              className="w-full rounded-md border border-gray-800 bg-transparent px-4 py-3 text-sm text-white placeholder:text-brand-gray focus:border-brand-orange focus:outline-none"
+              className="min-h-[44px] w-full rounded-md border border-gray-800 bg-transparent px-4 py-3 text-sm text-white placeholder:text-brand-gray focus:border-brand-orange focus:outline-none"
             />
           </div>
           <div>
@@ -181,14 +186,15 @@ export default function ContactSection() {
               id="message"
               name="message"
               rows={5}
+              autoComplete="off"
               placeholder="Message"
-              className="w-full resize-y rounded-md border border-gray-800 bg-transparent px-4 py-3 text-sm text-white placeholder:text-brand-gray focus:border-brand-orange focus:outline-none"
+              className="min-h-[120px] w-full resize-y rounded-md border border-gray-800 bg-transparent px-4 py-3 text-sm text-white placeholder:text-brand-gray focus:border-brand-orange focus:outline-none"
             />
           </div>
           <motion.button
             type="submit"
             className="w-full rounded-md bg-brand-orange px-6 py-3.5 text-sm font-bold uppercase tracking-wide text-white hover:opacity-95 md:w-auto"
-            {...buttonHoverProps}
+            {...m.buttonHoverProps}
           >
             SEND MESSAGE
           </motion.button>

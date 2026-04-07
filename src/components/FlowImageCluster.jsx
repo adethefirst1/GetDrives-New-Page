@@ -14,6 +14,9 @@ export default function FlowImageCluster({ images, alts }) {
             <img
               src={src}
               alt={alts[i]}
+              loading="lazy"
+              decoding="async"
+              sizes="(max-width: 768px) 33vw, 180px"
               className="h-full w-full object-cover"
             />
           </div>

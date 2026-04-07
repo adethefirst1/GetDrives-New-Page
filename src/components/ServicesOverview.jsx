@@ -1,11 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import {
-  buttonHoverProps,
-  cardItemVariants,
-  cardListVariants,
-  inView,
-} from "../motionPresets";
+import { inView, useAccessibleMotion } from "../motionPresets";
 
 const MotionLink = motion(Link);
 
@@ -85,35 +80,37 @@ const cards = [
 ];
 
 export default function ServicesOverview() {
+  const m = useAccessibleMotion();
+
   return (
-    <section id="browse-services" className="py-20 md:py-24">
+    <section id="browse-services" className="py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="mb-12 flex flex-col justify-between gap-12 md:mb-16 md:flex-row md:items-end">
+        <div className="mb-10 flex flex-col justify-between gap-8 md:mb-16 md:flex-row md:items-end md:gap-12">
           <h2 className="font-extrabold uppercase leading-[0.95] tracking-tighter text-white text-[clamp(2rem,5vw,3.5rem)]">
             <span className="block">ONE APP.</span>
             <span className="block">EVERY JOURNEY.</span>
           </h2>
           <MotionLink
             to="/services"
-            className="shrink-0 self-start text-sm font-bold uppercase tracking-wide text-white hover:text-brand-orange md:self-auto"
-            {...buttonHoverProps}
+            className="w-full shrink-0 self-start text-center text-sm font-bold uppercase tracking-wide text-white hover:text-brand-orange md:w-auto md:self-auto md:text-left"
+            {...m.buttonHoverProps}
           >
             VIEW SERVICES
           </MotionLink>
         </div>
 
         <motion.div
-          className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4"
+          className="grid gap-8 sm:grid-cols-2 sm:gap-10 md:gap-12 lg:grid-cols-4"
           initial="hidden"
           whileInView="show"
           viewport={inView}
-          variants={cardListVariants}
+          variants={m.cardListVariants}
         >
           {cards.map(({ title, desc, Icon }) => (
             <motion.article
               key={title}
               className="border border-white/[0.06] p-6"
-              variants={cardItemVariants}
+              variants={m.cardItemVariants}
             >
               <Icon className="h-8 w-8 text-white" />
               <h3 className="mt-6 font-bold uppercase tracking-tight text-white">

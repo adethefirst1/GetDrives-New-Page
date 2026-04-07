@@ -23,7 +23,7 @@ const steps = [
 
 export default function StepsSection() {
   return (
-    <section className="py-20 md:py-24">
+    <section id="driver-steps" className="py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-6">
         <p className="text-xs font-semibold uppercase tracking-[0.35em] text-brand-orange">
           GET STARTED
@@ -33,7 +33,7 @@ export default function StepsSection() {
           <span className="block">IN 4 STEPS.</span>
         </h2>
 
-        <div className="mt-14 grid gap-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-12">
+        <div className="mt-10 grid gap-8 sm:grid-cols-2 md:mt-14 md:gap-12 lg:grid-cols-4 lg:gap-12">
           {steps.map((step) => (
             <div key={step.n} className="relative min-h-[180px] pt-2">
               <span

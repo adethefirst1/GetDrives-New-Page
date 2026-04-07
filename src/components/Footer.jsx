@@ -36,7 +36,12 @@ function LinkColumn({ title, links }) {
                 {label}
               </Link>
             ) : (
-              <a href="#" className="hover:text-white">
+              <a
+                href="#"
+                className="hover:text-white"
+                aria-label={`${label} (page coming soon)`}
+                onClick={(e) => e.preventDefault()}
+              >
                 {label}
               </a>
             )}
@@ -55,9 +60,9 @@ export default function Footer({ variant = "home" }) {
   const year = isAbout ? "2023" : "2024";
 
   return (
-    <footer className="border-t border-white/10 bg-brand-bg py-20 md:py-24">
+    <footer className="border-t border-white/10 bg-brand-bg py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4 lg:gap-12">
+        <div className="grid gap-8 md:grid-cols-2 md:gap-12 lg:grid-cols-4 lg:gap-12">
           <div className="max-w-sm">
             <a
               href="/"
@@ -78,13 +83,28 @@ export default function Footer({ variant = "home" }) {
         <div className="mt-14 flex flex-col gap-4 border-t border-white/10 pt-8 text-sm text-brand-gray md:flex-row md:items-center md:justify-between">
           <p>© {year} GetDrives. All rights reserved.</p>
           <div className="flex flex-wrap gap-6">
-            <a href="#" className="hover:text-white">
+            <a
+              href="#"
+              className="inline-block min-h-[44px] py-2 hover:text-white"
+              aria-label="Privacy policy (coming soon)"
+              onClick={(e) => e.preventDefault()}
+            >
               Privacy Policy
             </a>
-            <a href="#" className="hover:text-white">
+            <a
+              href="#"
+              className="inline-block min-h-[44px] py-2 hover:text-white"
+              aria-label="Terms of service (coming soon)"
+              onClick={(e) => e.preventDefault()}
+            >
               Terms of Service
             </a>
-            <a href="#" className="hover:text-white">
+            <a
+              href="#"
+              className="inline-block min-h-[44px] py-2 hover:text-white"
+              aria-label="Cookie policy (coming soon)"
+              onClick={(e) => e.preventDefault()}
+            >
               Cookie Policy
             </a>
           </div>

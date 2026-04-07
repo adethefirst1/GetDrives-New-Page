@@ -11,12 +11,14 @@ export default function DriveWithUsPage() {
   return (
     <div className="min-h-screen bg-brand-bg">
       <Navbar />
+      <main id="main-content">
       <DriverHero />
       <StatsBar variant="drive" />
       <CategoryStrip variant="simple" />
       <BenefitsSection />
       <StepsSection />
       <CTASection variant="driver" />
+      </main>
       <Footer variant="home" />
     </div>
   );

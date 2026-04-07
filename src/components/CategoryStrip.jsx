@@ -97,7 +97,7 @@ function IconHeadset({ className }) {
 export default function CategoryStrip({ variant = "icons" }) {
   if (variant === "simple") {
     return (
-      <section className="border-b border-white/[0.06] bg-brand-bg py-12 md:py-14">
+      <section className="border-b border-white/[0.06] bg-brand-bg py-10 md:py-14">
         <div className="mx-auto max-w-7xl px-6">
           <div className="flex flex-wrap items-center justify-center gap-x-1 gap-y-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-white md:gap-x-2 md:text-[11px]">
             {simpleItems.map((label, i) => (
@@ -117,7 +117,7 @@ export default function CategoryStrip({ variant = "icons" }) {
   }
 
   return (
-    <section className="border-b border-white/[0.06] bg-brand-bg py-12 md:py-14">
+    <section className="border-b border-white/[0.06] bg-brand-bg py-10 md:py-14">
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-4 md:justify-between md:gap-x-6">
           {items.map(({ label, Icon }, i) => (

@@ -15,9 +15,9 @@ export default function StatsBar({ variant = "home" }) {
   const isDrive = variant === "drive";
 
   return (
-    <section className="border-y border-white/[0.06] py-12 md:py-14">
+    <section className="border-y border-white/[0.06] py-10 md:py-14">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="grid grid-cols-1 gap-12 text-center sm:text-left sm:grid-cols-3 sm:gap-12">
+        <div className="grid grid-cols-1 gap-8 text-center sm:text-left sm:grid-cols-3 sm:gap-10 md:gap-12">
           {stats.map((s) => (
             <div key={s.label} className="flex flex-col items-center sm:items-start">
               <p

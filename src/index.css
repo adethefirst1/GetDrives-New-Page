@@ -6,6 +6,65 @@ html {
   scroll-behavior: smooth;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 body {
-  @apply bg-brand-bg text-white antialiased;
+  @apply overflow-x-hidden bg-brand-bg text-white antialiased;
+}
+
+/* Keyboard focus — does not change default click/hover appearance */
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  @apply outline outline-2 outline-offset-2 outline-brand-orange;
+}
+
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  @apply outline-offset-0;
+}
+
+/* Skip navigation — visible only when focused */
+.skip-to-main {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+.skip-to-main:focus {
+  position: fixed;
+  left: 1rem;
+  top: 1rem;
+  z-index: 100;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  width: auto;
+  height: auto;
+  padding: 0.75rem 1rem;
+  overflow: visible;
+  clip: auto;
+  white-space: nowrap;
+  border-radius: 0.375rem;
+  background-color: #ff5a1f;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #fff;
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+  text-decoration: none;
 }

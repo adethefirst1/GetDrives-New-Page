@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { buttonHoverProps, inView, splitTransition } from "../motionPresets";
+import { CTA_DRIVER_LABEL, PATH_DRIVE_WITH_US } from "../ctaCopy";
+import { useAccessibleMotion } from "../motionPresets";
 
 const MotionLink = motion(Link);
 
@@ -13,15 +14,12 @@ const chartRows = [
 ];
 
 export default function DriverHero() {
+  const m = useAccessibleMotion();
+
   return (
-    <section className="py-20 md:py-24">
-      <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-2 lg:gap-16">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={inView}
-          transition={splitTransition}
-        >
+    <section className="py-16 md:py-24">
+      <div className="mx-auto grid min-w-0 max-w-7xl items-center gap-8 px-6 md:gap-12 lg:grid-cols-2 lg:gap-16">
+        <motion.div {...m.splitText}>
           <div className="mb-6 flex items-center gap-3">
             <span className="h-px w-8 bg-brand-orange" aria-hidden />
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-brand-orange">
@@ -34,35 +32,32 @@ export default function DriverHero() {
             <span className="block text-white">INTO</span>
             <span className="block text-brand-orange">INCOME.</span>
           </h1>
-          <p className="mt-8 max-w-xl text-base leading-relaxed text-brand-gray">
+          <p className="mt-8 w-full max-w-[90%] text-base leading-relaxed text-brand-gray sm:max-w-xl">
             Drive on your schedule, earn on your terms — transparent payouts, fair
             commissions, and no surge games cutting into what you keep.
           </p>
           <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
             <MotionLink
               to="/services"
-              className="inline-flex items-center justify-center gap-2 rounded-md bg-brand-orange px-6 py-3.5 text-sm font-bold uppercase tracking-wide text-white hover:opacity-95"
-              {...buttonHoverProps}
+              className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-brand-orange px-6 py-3.5 text-sm font-bold uppercase tracking-wide text-white hover:opacity-95 md:w-auto"
+              {...m.buttonHoverProps}
             >
               <span className="text-lg leading-none">+</span>
               EXPLORE SERVICES
             </MotionLink>
-            <motion.button
-              type="button"
-              className="inline-flex items-center justify-center rounded-md border border-white bg-transparent px-6 py-3.5 text-sm font-bold uppercase tracking-wide text-white hover:bg-white/5"
-              {...buttonHoverProps}
+            <MotionLink
+              to={PATH_DRIVE_WITH_US}
+              className="inline-flex w-full items-center justify-center rounded-md border border-white bg-transparent px-6 py-3.5 text-sm font-bold uppercase tracking-wide text-white hover:bg-white/5 md:w-auto"
+              {...m.buttonHoverProps}
             >
-              DRIVE WITH US
-            </motion.button>
+              {CTA_DRIVER_LABEL}
+            </MotionLink>
           </div>
         </motion.div>
 
         <motion.div
-          className="w-full lg:justify-self-end lg:max-w-none lg:w-[min(100%,520px)] lg:translate-x-4 xl:translate-x-8"
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={inView}
-          transition={splitTransition}
+          className="min-w-0 w-full lg:justify-self-end lg:max-w-none lg:w-[min(100%,520px)] lg:translate-x-4 xl:translate-x-8"
+          {...m.splitImageRight}
         >
           <div className="mx-auto w-full max-w-md rounded-xl border border-white/[0.06] bg-[#111111] p-6 md:p-8">
             <div className="flex items-start justify-between gap-3">

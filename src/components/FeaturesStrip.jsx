@@ -87,9 +87,9 @@ const features = [
 
 export default function FeaturesStrip() {
   return (
-    <section className="border-y border-white/[0.06] py-12 md:py-14">
+    <section className="border-y border-white/[0.06] py-10 md:py-14">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="grid grid-cols-2 gap-12 md:grid-cols-3 lg:grid-cols-6 lg:gap-12">
+        <div className="grid grid-cols-2 gap-8 md:gap-12 lg:grid-cols-6 lg:gap-12">
           {features.map(({ label, sub, Icon }) => (
             <div
               key={label}

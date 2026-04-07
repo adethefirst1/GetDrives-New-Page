@@ -1,8 +1,8 @@
 export default function MissionVision() {
   return (
-    <section className="py-20 md:py-24">
+    <section className="py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="grid gap-12 md:grid-cols-2 md:gap-12">
+        <div className="grid gap-8 md:grid-cols-2 md:gap-12">
           <div className="rounded-xl border border-white/[0.06] bg-[#111111] p-8 md:p-10">
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-orange">
               MISSION

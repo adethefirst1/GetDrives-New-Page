@@ -18,14 +18,14 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section className="py-20 md:py-24">
+    <section className="py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-6">
         <h2 className="font-extrabold uppercase leading-[0.95] tracking-tighter text-white text-[clamp(1.75rem,4vw,2.75rem)]">
           <span className="block">THREE STEPS.</span>
           <span className="block">ZERO HASSLE.</span>
         </h2>
 
-        <div className="mt-14 grid gap-12 md:grid-cols-3 md:gap-12">
+        <div className="mt-10 grid gap-8 md:mt-14 md:grid-cols-3 md:gap-12">
           {steps.map((step) => (
             <div key={step.n} className="relative min-h-[200px] pt-4">
               <span

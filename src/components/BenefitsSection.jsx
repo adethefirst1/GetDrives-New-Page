@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { cardItemVariants, cardListVariants, inView } from "../motionPresets";
+import { inView, useAccessibleMotion } from "../motionPresets";
 
 function IconClock({ className }) {
   return (
@@ -113,8 +113,10 @@ const benefits = [
 ];
 
 export default function BenefitsSection() {
+  const m = useAccessibleMotion();
+
   return (
-    <section className="py-20 md:py-24">
+    <section className="py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-6">
         <p className="text-xs font-semibold uppercase tracking-[0.35em] text-brand-orange">
           WHY DRIVE WITH US
@@ -125,17 +127,17 @@ export default function BenefitsSection() {
         </h2>
 
         <motion.div
-          className="mt-12 grid gap-12 sm:grid-cols-2 lg:grid-cols-3 lg:gap-12"
+          className="mt-10 grid gap-8 sm:grid-cols-2 md:mt-12 md:gap-12 lg:grid-cols-3 lg:gap-12"
           initial="hidden"
           whileInView="show"
           viewport={inView}
-          variants={cardListVariants}
+          variants={m.cardListVariants}
         >
           {benefits.map(({ title, body, Icon }) => (
             <motion.article
               key={title}
               className="flex h-full flex-col border border-white/[0.06] p-8"
-              variants={cardItemVariants}
+              variants={m.cardItemVariants}
             >
               <Icon className="h-8 w-8 text-brand-orange" />
               <h3 className="mt-6 font-bold text-white">{title}</h3>

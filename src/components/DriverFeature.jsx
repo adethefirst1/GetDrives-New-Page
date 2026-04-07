@@ -1,5 +1,9 @@
 import { motion } from "framer-motion";
-import { buttonHoverProps, inView, splitTransition } from "../motionPresets";
+import { Link } from "react-router-dom";
+import { CTA_DRIVER_LABEL, PATH_DRIVE_WITH_US } from "../ctaCopy";
+import { useAccessibleMotion } from "../motionPresets";
+
+const MotionLink = motion(Link);
 
 const tags = [
   "Low Commission",
@@ -9,16 +13,12 @@ const tags = [
 ];
 
 export default function DriverFeature() {
+  const m = useAccessibleMotion();
+
   return (
-    <section id="drivers" className="py-20 md:py-24">
-      <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-2 lg:gap-16">
-        <motion.div
-          className="space-y-6"
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={inView}
-          transition={splitTransition}
-        >
+    <section id="drivers" className="py-16 md:py-24">
+      <div className="mx-auto grid min-w-0 max-w-7xl items-center gap-8 px-6 md:gap-12 lg:grid-cols-2 lg:gap-16">
+        <motion.div className="space-y-6" {...m.splitText}>
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-orange">
             FOR DRIVERS
           </p>
@@ -27,7 +27,7 @@ export default function DriverFeature() {
             <span className="block">KEEP MORE.</span>
             <span className="block">DRIVE FREE.</span>
           </h2>
-          <p className="max-w-xl text-base leading-relaxed text-brand-gray">
+          <p className="w-full max-w-[90%] text-base leading-relaxed sm:max-w-xl text-brand-gray">
             Maximize what you keep with fair rates, instant payouts, and tools
             designed for drivers who want earnings without the fine print.
           </p>
@@ -41,25 +41,25 @@ export default function DriverFeature() {
               </span>
             ))}
           </div>
-          <motion.button
-            type="button"
-            className="mt-2 w-full rounded-md bg-brand-orange px-6 py-3.5 text-sm font-bold uppercase tracking-wide text-white hover:opacity-95 md:max-w-sm"
-            {...buttonHoverProps}
+          <MotionLink
+            to={PATH_DRIVE_WITH_US}
+            className="mt-2 inline-flex w-full items-center justify-center rounded-md bg-brand-orange px-6 py-3.5 text-center text-sm font-bold uppercase tracking-wide text-white hover:opacity-95 md:w-auto md:max-w-sm"
+            {...m.buttonHoverProps}
           >
-            GET ON THE ROAD
-          </motion.button>
+            {CTA_DRIVER_LABEL}
+          </MotionLink>
         </motion.div>
 
         <motion.div
           className="overflow-hidden rounded-xl lg:max-w-none lg:w-[min(100%,520px)] lg:translate-x-4 xl:translate-x-8"
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={inView}
-          transition={splitTransition}
+          {...m.splitImageRight}
         >
           <img
             src="/driver-woman.jpg"
             alt="Driver smiling in vehicle"
+            loading="lazy"
+            decoding="async"
+            sizes="(max-width: 1024px) 100vw, min(520px, 50vw)"
             className="aspect-[4/3] w-full object-cover object-top md:aspect-[5/4]"
           />
         </motion.div>
