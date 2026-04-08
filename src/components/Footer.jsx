@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { trackEvent } from "../lib/analytics";
 import Logo from "./Logo";
 
 const aboutCompany = ["About Us", "Support", "Press", "Blog"];
@@ -19,12 +20,18 @@ const homeDrivers = [
   "Safety",
 ];
 
-function FooterLink({ href, to, children }) {
+function FooterLink({ href, to, children, navLabel }) {
   const className =
     "text-sm font-normal text-[#666666] transition-colors hover:text-white";
   if (to) {
     return (
-      <Link to={to} className={className}>
+      <Link
+        to={to}
+        className={className}
+        onClick={() => {
+          if (navLabel) trackEvent("nav_click", { label: navLabel });
+        }}
+      >
         {children}
       </Link>
     );
@@ -62,7 +69,12 @@ export default function Footer({ variant = "home" }) {
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-10 md:grid-cols-2 md:gap-12 lg:grid-cols-4 lg:gap-12">
             <div className="max-w-sm">
-              <Link to="/" className="inline-block" aria-label="GetDrives home">
+              <Link
+                to="/"
+                className="inline-block"
+                aria-label="GetDrives home"
+                onClick={() => trackEvent("nav_click", { label: "HOME" })}
+              >
                 <Logo />
               </Link>
               <p className="mt-4 text-sm font-normal leading-relaxed text-[#666666]">
@@ -74,9 +86,13 @@ export default function Footer({ variant = "home" }) {
               {aboutCompany.map((label) => (
                 <li key={label}>
                   {label === "About Us" ? (
-                    <FooterLink to="/about">{label}</FooterLink>
+                    <FooterLink to="/about" navLabel={label}>
+                      {label}
+                    </FooterLink>
                   ) : label === "Support" ? (
-                    <FooterLink to="/about#contact">{label}</FooterLink>
+                    <FooterLink to="/about#contact" navLabel={label}>
+                      {label}
+                    </FooterLink>
                   ) : (
                     <FooterLink href="#">{label}</FooterLink>
                   )}
@@ -86,7 +102,9 @@ export default function Footer({ variant = "home" }) {
             <FooterColumn title="SERVICES">
               {aboutServices.map((label) => (
                 <li key={label}>
-                  <FooterLink to="/services">{label}</FooterLink>
+                  <FooterLink to="/services" navLabel={label}>
+                    {label}
+                  </FooterLink>
                 </li>
               ))}
             </FooterColumn>
@@ -94,9 +112,13 @@ export default function Footer({ variant = "home" }) {
               {aboutDrivers.map((label) => (
                 <li key={label}>
                   {label === "Sign up to drive" ? (
-                    <FooterLink to="/drive-with-us">{label}</FooterLink>
+                    <FooterLink to="/drive-with-us" navLabel={label}>
+                      {label}
+                    </FooterLink>
                   ) : label === "Support" ? (
-                    <FooterLink to="/about#contact">{label}</FooterLink>
+                    <FooterLink to="/about#contact" navLabel={label}>
+                      {label}
+                    </FooterLink>
                   ) : (
                     <FooterLink href="#">{label}</FooterLink>
                   )}
@@ -132,7 +154,12 @@ export default function Footer({ variant = "home" }) {
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid gap-10 md:grid-cols-2 md:gap-12 lg:grid-cols-4 lg:gap-12">
           <div className="max-w-sm">
-            <Link to="/" className="inline-block" aria-label="GetDrives home">
+            <Link
+              to="/"
+              className="inline-block"
+              aria-label="GetDrives home"
+              onClick={() => trackEvent("nav_click", { label: "HOME" })}
+            >
               <Logo />
             </Link>
             <p className="mt-4 text-sm font-normal leading-relaxed text-[#666666]">
@@ -145,7 +172,9 @@ export default function Footer({ variant = "home" }) {
             {homeCompany.map((label) => (
               <li key={label}>
                 {label === "About Us" ? (
-                  <FooterLink to="/about">{label}</FooterLink>
+                  <FooterLink to="/about" navLabel={label}>
+                    {label}
+                  </FooterLink>
                 ) : (
                   <FooterLink href="#">{label}</FooterLink>
                 )}
@@ -156,7 +185,9 @@ export default function Footer({ variant = "home" }) {
           <FooterColumn title="SERVICES">
             {homeServices.map((label) => (
               <li key={label}>
-                <FooterLink to="/services">{label}</FooterLink>
+                <FooterLink to="/services" navLabel={label}>
+                  {label}
+                </FooterLink>
               </li>
             ))}
           </FooterColumn>
@@ -165,9 +196,13 @@ export default function Footer({ variant = "home" }) {
             {homeDrivers.map((label) => (
               <li key={label}>
                 {label === "Sign Up to Drive" ? (
-                  <FooterLink to="/drive-with-us">{label}</FooterLink>
+                  <FooterLink to="/drive-with-us" navLabel={label}>
+                    {label}
+                  </FooterLink>
                 ) : label === "Support" ? (
-                  <FooterLink to="/about#contact">{label}</FooterLink>
+                  <FooterLink to="/about#contact" navLabel={label}>
+                    {label}
+                  </FooterLink>
                 ) : (
                   <FooterLink href="#">{label}</FooterLink>
                 )}

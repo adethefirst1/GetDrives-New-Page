@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { PATH_DRIVE_WITH_US } from "../ctaCopy";
+import { trackEvent } from "../lib/analytics";
+import ResponsivePicture from "./ResponsivePicture";
 import { useAccessibleMotion } from "../motionPresets";
 
 const MotionLink = motion(Link);
@@ -43,6 +45,7 @@ export default function DriverFeature() {
             to={PATH_DRIVE_WITH_US}
             className="mt-2 inline-flex w-full items-center justify-center rounded-md bg-brand-orange px-6 py-3.5 text-center text-sm font-bold uppercase tracking-wide text-white hover:opacity-95 md:w-auto md:max-w-sm"
             {...m.buttonHoverProps}
+            onClick={() => trackEvent("cta_drive_click")}
           >
             START DRIVING
           </MotionLink>
@@ -52,9 +55,11 @@ export default function DriverFeature() {
           className="overflow-hidden rounded-xl lg:max-w-none lg:w-[min(100%,520px)] lg:translate-x-4 xl:translate-x-8"
           {...m.splitImageRight}
         >
-          <img
-            src="/homepage-woman.png"
+          <ResponsivePicture
+            base="/homepage-woman"
+            ext="png"
             alt="Passenger smiling by the car window in golden light"
+            responsive
             loading="lazy"
             decoding="async"
             sizes="(max-width: 1024px) 100vw, min(520px, 50vw)"

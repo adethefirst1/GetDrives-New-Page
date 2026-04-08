@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { PATH_DRIVE_WITH_US } from "../ctaCopy";
+import { trackEvent } from "../lib/analytics";
 import Logo from "./Logo";
 import { useAccessibleMotion } from "../motionPresets";
 
@@ -99,7 +100,12 @@ export default function Navbar() {
         Skip to main content
       </a>
       <div className="relative z-[60] mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
-        <Link to="/" className="relative z-10 shrink-0" aria-label="GetDrives home">
+        <Link
+          to="/"
+          className="relative z-10 shrink-0"
+          aria-label="GetDrives home"
+          onClick={() => trackEvent("nav_click", { label: "HOME" })}
+        >
           <Logo />
         </Link>
 
@@ -107,16 +113,33 @@ export default function Navbar() {
           className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 gap-8 text-[11px] font-semibold tracking-[0.2em] md:flex"
           aria-label="Primary"
         >
-          <NavLink to="/" end className={linkClass}>
+          <NavLink
+            to="/"
+            end
+            className={linkClass}
+            onClick={() => trackEvent("nav_click", { label: "HOME" })}
+          >
             HOME
           </NavLink>
-          <NavLink to="/services" className={linkClass}>
+          <NavLink
+            to="/services"
+            className={linkClass}
+            onClick={() => trackEvent("nav_click", { label: "SERVICES" })}
+          >
             SERVICES
           </NavLink>
-          <NavLink to="/drive-with-us" className={linkClass}>
+          <NavLink
+            to="/drive-with-us"
+            className={linkClass}
+            onClick={() => trackEvent("nav_click", { label: "DRIVE_WITH_US" })}
+          >
             DRIVE WITH US
           </NavLink>
-          <NavLink to="/about" className={linkClass}>
+          <NavLink
+            to="/about"
+            className={linkClass}
+            onClick={() => trackEvent("nav_click", { label: "ABOUT" })}
+          >
             ABOUT
           </NavLink>
         </nav>
@@ -126,6 +149,7 @@ export default function Navbar() {
             to={PATH_DRIVE_WITH_US}
             className="relative hidden rounded-md bg-brand-orange px-6 py-3.5 text-xs font-bold uppercase tracking-wide text-white hover:opacity-95 md:inline-flex"
             {...m.buttonHoverProps}
+            onClick={() => trackEvent("cta_drive_click")}
           >
             START EARNING
           </MotionLink>
@@ -170,27 +194,55 @@ export default function Navbar() {
               className="absolute left-0 right-0 top-full z-50 border-t border-white/10 bg-[#0B0B0B] md:hidden"
             >
               <div className="mx-auto flex max-w-7xl flex-col gap-1 px-6 py-4">
-                <NavLink to="/" end className={mobileLinkClass} onClick={close}>
+                <NavLink
+                  to="/"
+                  end
+                  className={mobileLinkClass}
+                  onClick={() => {
+                    trackEvent("nav_click", { label: "HOME" });
+                    close();
+                  }}
+                >
                   HOME
                 </NavLink>
-                <NavLink to="/services" className={mobileLinkClass} onClick={close}>
+                <NavLink
+                  to="/services"
+                  className={mobileLinkClass}
+                  onClick={() => {
+                    trackEvent("nav_click", { label: "SERVICES" });
+                    close();
+                  }}
+                >
                   SERVICES
                 </NavLink>
                 <NavLink
                   to="/drive-with-us"
                   className={mobileLinkClass}
-                  onClick={close}
+                  onClick={() => {
+                    trackEvent("nav_click", { label: "DRIVE_WITH_US" });
+                    close();
+                  }}
                 >
                   DRIVE WITH US
                 </NavLink>
-                <NavLink to="/about" className={mobileLinkClass} onClick={close}>
+                <NavLink
+                  to="/about"
+                  className={mobileLinkClass}
+                  onClick={() => {
+                    trackEvent("nav_click", { label: "ABOUT" });
+                    close();
+                  }}
+                >
                   ABOUT
                 </NavLink>
                 <MotionLink
                   to={PATH_DRIVE_WITH_US}
                   className="mt-2 flex min-h-[48px] w-full items-center justify-center rounded-md bg-brand-orange px-6 text-sm font-bold uppercase tracking-wide text-white hover:opacity-95"
                   {...m.buttonHoverProps}
-                  onClick={close}
+                  onClick={() => {
+                    trackEvent("cta_drive_click");
+                    close();
+                  }}
                 >
                   START EARNING
                 </MotionLink>

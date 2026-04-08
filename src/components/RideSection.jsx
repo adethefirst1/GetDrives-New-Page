@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { PATH_DOWNLOAD } from "../ctaCopy";
+import { trackEvent } from "../lib/analytics";
+import ResponsivePicture from "./ResponsivePicture";
 import TagRow from "./TagRow";
 import { useAccessibleMotion } from "../motionPresets";
 
@@ -24,9 +26,11 @@ export default function RideSection() {
           className="order-2 overflow-hidden lg:order-1"
           {...m.splitImageLeft}
         >
-          <img
-            src="/ride-hero.png"
+          <ResponsivePicture
+            base="/ride-hero"
+            ext="png"
             alt="Passenger entering a vehicle with pickup confirmed in the GetDrives app"
+            responsive
             loading="lazy"
             decoding="async"
             sizes="(max-width: 1024px) 100vw, min(520px, 50vw)"
@@ -55,6 +59,7 @@ export default function RideSection() {
             to={PATH_DOWNLOAD}
             className="mt-2 inline-flex w-full max-w-md items-center justify-center rounded-none bg-brand-orange px-6 py-3.5 text-center text-sm font-bold uppercase tracking-[0.2em] text-white"
             {...m.buttonHoverProps}
+            onClick={() => trackEvent("cta_download_click")}
           >
             BOOK A RIDE
           </MotionLink>

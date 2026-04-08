@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { PATH_DOWNLOAD } from "../ctaCopy";
+import { trackEvent } from "../lib/analytics";
+import ResponsivePicture from "./ResponsivePicture";
 import { useAccessibleMotion } from "../motionPresets";
 
 const MotionLink = motion(Link);
@@ -22,9 +24,11 @@ export default function RideFeature() {
           className="order-2 overflow-hidden rounded-xl lg:order-1 lg:max-w-none lg:w-[min(100%,520px)] lg:-translate-x-4 xl:-translate-x-8"
           {...m.splitImageLeft}
         >
-          <img
-            src="/homepage-pov.png"
+          <ResponsivePicture
+            base="/homepage-pov"
+            ext="png"
             alt="Driver using GPS navigation on a sunny highway"
+            responsive
             loading="lazy"
             decoding="async"
             sizes="(max-width: 1024px) 100vw, min(520px, 50vw)"
@@ -60,6 +64,7 @@ export default function RideFeature() {
             to={PATH_DOWNLOAD}
             className="mt-2 inline-flex w-full items-center justify-center rounded-md bg-brand-orange px-6 py-3.5 text-center text-sm font-bold uppercase tracking-wide text-white hover:opacity-95 md:w-auto md:max-w-sm"
             {...m.buttonHoverProps}
+            onClick={() => trackEvent("cta_download_click")}
           >
             DOWNLOAD THE APP
           </MotionLink>

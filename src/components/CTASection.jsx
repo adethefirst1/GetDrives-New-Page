@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { PATH_DOWNLOAD, PATH_DRIVE_WITH_US } from "../ctaCopy";
+import { trackEvent } from "../lib/analytics";
 import { useAccessibleMotion } from "../motionPresets";
 
 const MotionLink = motion(Link);
@@ -28,6 +29,7 @@ export default function CTASection({ variant = "services" }) {
               to={PATH_DOWNLOAD}
               className="inline-flex min-h-[48px] items-center justify-center rounded-none bg-white px-6 py-3.5 text-center text-xs font-bold uppercase tracking-[0.2em] text-[#FF5500] hover:opacity-95"
               {...m.buttonHoverProps}
+              onClick={() => trackEvent("cta_download_click")}
             >
               DOWNLOAD THE APP
             </MotionLink>
@@ -35,6 +37,7 @@ export default function CTASection({ variant = "services" }) {
               to={PATH_DRIVE_WITH_US}
               className="inline-flex min-h-[48px] items-center justify-center rounded-none bg-[#B23B00] px-6 py-3.5 text-center text-xs font-bold uppercase tracking-[0.2em] text-white hover:opacity-95"
               {...m.buttonHoverProps}
+              onClick={() => trackEvent("cta_drive_click")}
             >
               DRIVE WITH US
             </MotionLink>
@@ -60,6 +63,7 @@ export default function CTASection({ variant = "services" }) {
               to={`${PATH_DRIVE_WITH_US}#driver-steps`}
               className="inline-flex min-h-[52px] flex-1 items-center justify-center rounded-none bg-white px-8 py-4 text-center text-xs font-bold uppercase tracking-[0.2em] text-[#FF5500] hover:opacity-95 sm:flex-initial sm:min-w-[12rem] md:px-10"
               {...m.buttonHoverProps}
+              onClick={() => trackEvent("cta_drive_click")}
             >
               APPLY TO DRIVE NOW
             </MotionLink>
@@ -92,6 +96,7 @@ export default function CTASection({ variant = "services" }) {
               to={PATH_DOWNLOAD}
               className="inline-flex min-h-[48px] items-center justify-center rounded-none bg-white px-6 py-3.5 text-center text-xs font-bold uppercase tracking-[0.2em] text-brand-orange hover:opacity-95"
               {...m.buttonHoverProps}
+              onClick={() => trackEvent("cta_download_click")}
             >
               DOWNLOAD THE APP
             </MotionLink>
@@ -99,6 +104,7 @@ export default function CTASection({ variant = "services" }) {
               to={PATH_DRIVE_WITH_US}
               className="inline-flex min-h-[48px] items-center justify-center rounded-none bg-[#B23B00] px-6 py-3.5 text-center text-xs font-bold uppercase tracking-[0.2em] text-white hover:opacity-95"
               {...m.buttonHoverProps}
+              onClick={() => trackEvent("cta_drive_click")}
             >
               DRIVE WITH GETDRIVES
             </MotionLink>
@@ -120,6 +126,7 @@ export default function CTASection({ variant = "services" }) {
             to={PATH_DOWNLOAD}
             className="inline-flex min-h-[48px] items-center justify-center rounded-none bg-white px-6 py-3.5 text-center text-xs font-bold uppercase tracking-[0.2em] text-brand-orange hover:opacity-95"
             {...m.buttonHoverProps}
+            onClick={() => trackEvent("cta_download_click")}
           >
             GET THE APP
           </MotionLink>
@@ -127,6 +134,7 @@ export default function CTASection({ variant = "services" }) {
             to="/about#contact"
             className="inline-flex min-h-[48px] items-center justify-center rounded-none border border-white bg-transparent px-6 py-3.5 text-center text-xs font-bold uppercase tracking-[0.2em] text-white hover:bg-white/10"
             {...m.buttonHoverProps}
+            onClick={() => trackEvent("nav_click", { label: "CONTACT" })}
           >
             TALK TO US
           </MotionLink>

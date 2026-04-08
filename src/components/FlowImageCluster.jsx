@@ -1,22 +1,25 @@
 import { useId } from "react";
+import ResponsivePicture from "./ResponsivePicture";
 
-export default function FlowImageCluster({ images, alts }) {
+/** `bases` are paths without extension, e.g. `/delivery-1` with `ext="jpg"`. */
+export default function FlowImageCluster({ bases, ext, alts }) {
   const gid = useId().replace(/:/g, "");
 
   return (
     <div className="relative w-full">
       <div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4">
-        {images.map((src, i) => (
+        {bases.map((base, i) => (
           <div
-            key={src}
+            key={base}
             className="aspect-[3/4] overflow-hidden rounded-lg bg-neutral-900"
           >
-            <img
-              src={src}
+            <ResponsivePicture
+              base={base}
+              ext={ext}
               alt={alts[i]}
+              sizes="(max-width: 768px) 33vw, 180px"
               loading="lazy"
               decoding="async"
-              sizes="(max-width: 768px) 33vw, 180px"
               className="h-full w-full object-cover"
             />
           </div>

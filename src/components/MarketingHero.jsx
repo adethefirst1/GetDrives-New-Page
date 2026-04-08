@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { PATH_DRIVE_WITH_US } from "../ctaCopy";
+import { trackEvent } from "../lib/analytics";
+import ResponsivePicture from "./ResponsivePicture";
 import { useAccessibleMotion } from "../motionPresets";
 
 const MotionLink = motion(Link);
@@ -38,10 +40,13 @@ export default function MarketingHero() {
         >
           <div className="flex w-full max-w-[min(100%,440px)] flex-col lg:max-w-none lg:w-[min(100%,520px)] lg:translate-x-4 xl:translate-x-8">
             <div className="relative w-full">
-              <img
-                src="/hero-delivery.png"
+              <ResponsivePicture
+                base="/hero-delivery"
+                ext="png"
                 alt="GetDrives delivery professional with branded backpack, jacket, and orange G mark"
+                responsive
                 fetchPriority="high"
+                loading="eager"
                 decoding="async"
                 sizes="(max-width: 440px) 100vw, (max-width: 1280px) 50vw, 520px"
                 className="relative z-10 w-full max-w-full -rotate-[3deg] rounded-[2rem] object-contain object-center shadow-lg sm:rounded-[2.25rem]"
@@ -53,6 +58,7 @@ export default function MarketingHero() {
                 to="/services"
                 className="inline-flex min-h-[48px] w-full items-center justify-center rounded-md bg-brand-orange px-6 py-3.5 text-center font-sans text-xs font-bold uppercase tracking-[0.2em] text-white hover:opacity-95 sm:w-auto"
                 {...m.buttonHoverProps}
+                onClick={() => trackEvent("nav_click", { label: "SERVICES" })}
               >
                 EXPLORE SERVICES →
               </MotionLink>
@@ -60,6 +66,7 @@ export default function MarketingHero() {
                 to={PATH_DRIVE_WITH_US}
                 className="inline-flex min-h-[48px] w-full items-center justify-center rounded-md border border-white bg-transparent px-6 py-3.5 text-center font-sans text-xs font-bold uppercase tracking-[0.2em] text-white hover:bg-white/5 sm:w-auto"
                 {...m.buttonHoverProps}
+                onClick={() => trackEvent("cta_drive_click")}
               >
                 DRIVE WITH US
               </MotionLink>

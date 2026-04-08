@@ -1,5 +1,9 @@
+import { useCallback, useState } from "react";
 import { motion } from "framer-motion";
+import { trackEvent } from "../lib/analytics";
 import { useAccessibleMotion } from "../motionPresets";
+
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/mwvwzrkk";
 
 function IconPhone({ className }) {
   return (
@@ -61,32 +65,57 @@ function IconMap({ className }) {
 
 const CONTACT_EMAIL = "hello@getdrives.com";
 
-function submitToHello(e) {
-  e.preventDefault();
-  const form = e.currentTarget;
-  const fd = new FormData(form);
-  const name = String(fd.get("name") ?? "").trim();
-  const email = String(fd.get("email") ?? "").trim();
-  const subject = String(fd.get("subject") ?? "").trim();
-  const message = String(fd.get("message") ?? "").trim();
-  if (!email) {
-    form.querySelector("#email")?.focus();
-    return;
+async function submitToFormspree(form) {
+  const res = await fetch(FORMSPREE_ENDPOINT, {
+    method: "POST",
+    body: new FormData(form),
+    headers: { Accept: "application/json" },
+  });
+  let data = {};
+  try {
+    data = await res.json();
+  } catch {
+    /* ignore */
   }
-  const lines = [];
-  if (name) lines.push(`Name: ${name}`);
-  lines.push(`Email: ${email}`);
-  lines.push("");
-  lines.push(message || "(No message text)");
-  const body = lines.join("\n");
-  const href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
-    subject || "Message from GetDrives contact form"
-  )}&body=${encodeURIComponent(body)}`;
-  window.location.href = href;
+  if (!res.ok) {
+    const msg =
+      typeof data.error === "string"
+        ? data.error
+        : "Something went wrong. Please try again.";
+    throw new Error(msg);
+  }
 }
 
 export default function ContactSection() {
   const m = useAccessibleMotion();
+  const [status, setStatus] = useState("idle");
+
+  const clearErrorState = useCallback(() => {
+    setStatus((s) => (s === "error" ? "idle" : s));
+  }, []);
+
+  const handleSubmit = useCallback(async (e) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+    const email = String(fd.get("email") ?? "").trim();
+    if (!email) {
+      form.querySelector("#email")?.focus();
+      return;
+    }
+
+    setStatus("loading");
+    try {
+      await submitToFormspree(form);
+      trackEvent("contact_submit");
+      form.reset();
+      setStatus("success");
+    } catch {
+      setStatus("error");
+    }
+  }, []);
+
+  const busy = status === "loading";
 
   return (
     <section id="contact" className="bg-black py-16 md:py-24">
@@ -147,10 +176,10 @@ export default function ContactSection() {
                 </p>
                 <p className="mt-2">
                   <a
-                    href="mailto:hello@getdrives.com"
+                    href={`mailto:${CONTACT_EMAIL}`}
                     className="hover:text-white"
                   >
-                    hello@getdrives.com
+                    {CONTACT_EMAIL}
                   </a>
                 </p>
               </div>
@@ -171,7 +200,12 @@ export default function ContactSection() {
         </div>
 
         <div className="border border-[#333333] p-8 md:p-10 lg:p-12">
-          <form className="space-y-6 text-left" onSubmit={submitToHello}>
+          <form className="space-y-6 text-left" onSubmit={handleSubmit}>
+            <input
+              type="hidden"
+              name="source"
+              value="getdrives_website"
+            />
             <div>
               <label
                 htmlFor="name"
@@ -185,7 +219,9 @@ export default function ContactSection() {
                 type="text"
                 autoComplete="name"
                 placeholder="e.g. Emeka Johnson"
-                className="min-h-[44px] w-full rounded-none border border-[#222222] bg-[#0A0A0A] px-4 py-3 text-sm text-white placeholder:text-[#888888] focus:border-[#F15A29] focus:outline-none focus:ring-0"
+                onFocus={clearErrorState}
+                disabled={busy}
+                className="min-h-[44px] w-full rounded-none border border-[#222222] bg-[#0A0A0A] px-4 py-3 text-sm text-white placeholder:text-[#888888] focus:border-[#F15A29] focus:outline-none focus:ring-0 disabled:opacity-60"
               />
             </div>
             <div>
@@ -202,7 +238,9 @@ export default function ContactSection() {
                 required
                 autoComplete="email"
                 placeholder="you@example.com"
-                className="min-h-[44px] w-full rounded-none border border-[#222222] bg-[#0A0A0A] px-4 py-3 text-sm text-white placeholder:text-[#888888] focus:border-[#F15A29] focus:outline-none focus:ring-0"
+                onFocus={clearErrorState}
+                disabled={busy}
+                className="min-h-[44px] w-full rounded-none border border-[#222222] bg-[#0A0A0A] px-4 py-3 text-sm text-white placeholder:text-[#888888] focus:border-[#F15A29] focus:outline-none focus:ring-0 disabled:opacity-60"
               />
             </div>
             <div>
@@ -218,7 +256,9 @@ export default function ContactSection() {
                 type="text"
                 autoComplete="off"
                 defaultValue="General Enquiry"
-                className="min-h-[44px] w-full rounded-none border border-[#222222] bg-[#0A0A0A] px-4 py-3 text-sm text-white focus:border-[#F15A29] focus:outline-none focus:ring-0"
+                onFocus={clearErrorState}
+                disabled={busy}
+                className="min-h-[44px] w-full rounded-none border border-[#222222] bg-[#0A0A0A] px-4 py-3 text-sm text-white focus:border-[#F15A29] focus:outline-none focus:ring-0 disabled:opacity-60"
               />
             </div>
             <div>
@@ -234,16 +274,39 @@ export default function ContactSection() {
                 rows={6}
                 autoComplete="off"
                 placeholder="Tell us what's on your mind..."
-                className="min-h-[140px] w-full resize-y rounded-none border border-[#222222] bg-[#0A0A0A] px-4 py-3 text-sm text-white placeholder:text-[#888888] focus:border-[#F15A29] focus:outline-none focus:ring-0"
+                onFocus={clearErrorState}
+                disabled={busy}
+                className="min-h-[140px] w-full resize-y rounded-none border border-[#222222] bg-[#0A0A0A] px-4 py-3 text-sm text-white placeholder:text-[#888888] focus:border-[#F15A29] focus:outline-none focus:ring-0 disabled:opacity-60"
               />
             </div>
+
             <motion.button
               type="submit"
-              className="inline-flex min-h-[44px] items-center justify-center rounded-none bg-[#F15A29] px-10 py-3 text-xs font-bold uppercase tracking-[0.2em] text-white hover:opacity-95"
-              {...m.buttonHoverProps}
+              disabled={busy}
+              className="inline-flex min-h-[44px] items-center justify-center rounded-none bg-[#F15A29] px-10 py-3 text-xs font-bold uppercase tracking-[0.2em] text-white hover:opacity-95 disabled:cursor-not-allowed disabled:opacity-70"
+              {...(busy ? {} : m.buttonHoverProps)}
             >
-              SEND MESSAGE
+              {busy ? "Sending..." : "SEND MESSAGE"}
             </motion.button>
+
+            {status === "success" && (
+              <p
+                className="text-sm leading-relaxed text-[#888888]"
+                role="status"
+                aria-live="polite"
+              >
+                Thanks — your message was sent. We&apos;ll get back to you soon.
+              </p>
+            )}
+            {status === "error" && (
+              <p
+                className="text-sm leading-relaxed text-[#888888]"
+                role="alert"
+                aria-live="assertive"
+              >
+                Couldn&apos;t send your message. Please try again in a moment.
+              </p>
+            )}
           </form>
         </div>
       </div>

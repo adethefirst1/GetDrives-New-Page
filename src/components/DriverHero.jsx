@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { PATH_DRIVE_WITH_US } from "../ctaCopy";
+import { trackEvent } from "../lib/analytics";
 import { useAccessibleMotion } from "../motionPresets";
 
 const MotionLink = motion(Link);
@@ -74,6 +75,7 @@ export default function DriverHero() {
                 to="/services"
                 className="inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-none bg-[#FF4500] px-6 py-3.5 text-xs font-bold uppercase tracking-[0.2em] text-white hover:opacity-95 sm:w-auto"
                 {...m.buttonHoverProps}
+                onClick={() => trackEvent("nav_click", { label: "SERVICES" })}
               >
                 EXPLORE SERVICES
                 <span aria-hidden className="text-base leading-none">
@@ -84,6 +86,7 @@ export default function DriverHero() {
                 to={PATH_DRIVE_WITH_US}
                 className="inline-flex min-h-[48px] w-full items-center justify-center rounded-none border border-white bg-transparent px-6 py-3.5 text-xs font-bold uppercase tracking-[0.2em] text-white hover:bg-white/5 sm:w-auto"
                 {...m.buttonHoverProps}
+                onClick={() => trackEvent("cta_drive_click")}
               >
                 DRIVE WITH US
               </MotionLink>

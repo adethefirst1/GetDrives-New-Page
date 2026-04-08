@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import ResponsivePicture from "./ResponsivePicture";
 import TagRow from "./TagRow";
 import { useAccessibleMotion } from "../motionPresets";
 
@@ -22,9 +23,11 @@ export default function BusinessSection() {
           className="order-2 flex min-h-[240px] items-center justify-center overflow-hidden bg-brand-bg lg:order-1 lg:min-h-[420px]"
           {...m.splitImageLeft}
         >
-          <img
-            src="/business-flow.png"
+          <ResponsivePicture
+            base="/business-flow"
+            ext="png"
             alt="Travel, expense analytics, and team collaboration in a continuous flow"
+            responsive
             loading="lazy"
             decoding="async"
             sizes="(max-width: 1024px) 100vw, min(520px, 50vw)"

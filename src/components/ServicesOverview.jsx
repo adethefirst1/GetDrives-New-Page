@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { trackEvent } from "../lib/analytics";
 import { inView, useAccessibleMotion } from "../motionPresets";
 
 const MotionLink = motion(Link);
@@ -94,6 +95,7 @@ export default function ServicesOverview() {
             to="/services"
             className="w-full shrink-0 self-start text-center text-sm font-bold uppercase tracking-wide text-white hover:text-brand-orange md:w-auto md:self-auto md:text-left"
             {...m.buttonHoverProps}
+            onClick={() => trackEvent("nav_click", { label: "SERVICES" })}
           >
             VIEW SERVICES →
           </MotionLink>

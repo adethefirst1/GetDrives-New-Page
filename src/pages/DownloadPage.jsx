@@ -1,6 +1,7 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { STORE_URL_APPLE, STORE_URL_GOOGLE_PLAY } from "../ctaCopy";
+import { trackEvent } from "../lib/analytics";
 import { DOCUMENT_TITLES, useDocumentTitle } from "../useDocumentTitle";
 
 export default function DownloadPage() {
@@ -28,6 +29,9 @@ export default function DownloadPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex w-full items-center justify-center rounded-md bg-brand-orange px-6 py-3.5 text-center text-sm font-bold uppercase tracking-wide text-white hover:opacity-95 sm:w-auto"
+                onClick={() =>
+                  trackEvent("cta_download_click", { platform: "ios" })
+                }
               >
                 APP STORE
               </a>
@@ -36,6 +40,9 @@ export default function DownloadPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex w-full items-center justify-center rounded-md border border-white bg-transparent px-6 py-3.5 text-center text-sm font-bold uppercase tracking-wide text-white hover:bg-white/5 sm:w-auto"
+                onClick={() =>
+                  trackEvent("cta_download_click", { platform: "android" })
+                }
               >
                 GOOGLE PLAY
               </a>

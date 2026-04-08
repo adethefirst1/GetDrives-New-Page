@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { PATH_DOWNLOAD } from "../ctaCopy";
+import { trackEvent } from "../lib/analytics";
 import FlowImageCluster from "./FlowImageCluster";
 import TagRow from "./TagRow";
 import { useAccessibleMotion } from "../motionPresets";
@@ -14,7 +15,7 @@ const deliveryTags = [
   "LIVE TRACKING",
 ];
 
-const imgs = ["/delivery-1.jpg", "/delivery-2.jpg", "/delivery-3.jpg"];
+const deliveryBases = ["/delivery-1", "/delivery-2", "/delivery-3"];
 const alts = [
   "Package handoff for delivery",
   "Phone showing live map tracking",
@@ -48,13 +49,14 @@ export default function DeliverySection() {
             to={PATH_DOWNLOAD}
             className="mt-2 inline-flex w-full max-w-md items-center justify-center rounded-none bg-brand-orange px-6 py-3.5 text-center text-sm font-bold uppercase tracking-[0.2em] text-white"
             {...m.buttonHoverProps}
+            onClick={() => trackEvent("cta_download_click")}
           >
             SEND A PACKAGE
           </MotionLink>
         </motion.div>
 
         <motion.div className="relative min-h-[240px] lg:min-h-[420px]" {...m.splitImageRight}>
-          <FlowImageCluster images={imgs} alts={alts} />
+          <FlowImageCluster bases={deliveryBases} ext="jpg" alts={alts} />
         </motion.div>
       </div>
     </section>
