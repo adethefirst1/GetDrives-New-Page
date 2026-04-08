@@ -21,6 +21,15 @@ export default {
           "sans-serif",
         ],
       },
+      keyframes: {
+        "driver-marquee": {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+      },
+      animation: {
+        "driver-marquee": "driver-marquee 40s linear infinite",
+      },
     },
   },
   plugins: [],

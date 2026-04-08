@@ -1,5 +1,6 @@
 import Navbar from "../components/Navbar";
 import MarketingHero from "../components/MarketingHero";
+import { DOCUMENT_TITLES, useDocumentTitle } from "../useDocumentTitle";
 import StatsBar from "../components/StatsBar";
 import CategoryStrip from "../components/CategoryStrip";
 import ServicesOverview from "../components/ServicesOverview";
@@ -11,13 +12,15 @@ import CTASection from "../components/CTASection";
 import Footer from "../components/Footer";
 
 export default function HomePage() {
+  useDocumentTitle(DOCUMENT_TITLES.home);
+
   return (
     <div className="min-h-screen bg-brand-bg">
       <Navbar />
       <main id="main-content">
       <MarketingHero />
       <StatsBar variant="home" />
-      <CategoryStrip />
+      <CategoryStrip variant="marquee" />
       <ServicesOverview />
       <RideFeature />
       <DriverFeature />

@@ -10,33 +10,30 @@ export default function CTASection({ variant = "services" }) {
 
   if (variant === "about") {
     return (
-      <motion.section className="bg-brand-orange py-16 md:py-24" {...m.ctaSection}>
-        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-6 md:flex-row md:items-end md:gap-12">
-          <div className="max-w-3xl">
-            <h2 className="font-extrabold uppercase leading-[0.95] tracking-tighter text-white">
-              <span className="block text-[clamp(2.25rem,6vw,4rem)]">JOIN THE</span>
-              <span className="block text-[clamp(2.75rem,7vw,5rem)] leading-[0.95]">
-                MOVEMENT
-              </span>
-              <span
-                className="block text-[clamp(1.5rem,4vw,2.75rem)] leading-none text-white/30"
-                aria-hidden
-              >
-                MOVEMENT
-              </span>
-            </h2>
-          </div>
-          <div className="flex w-full flex-col gap-4 sm:flex-row sm:justify-end md:w-auto">
+      <motion.section
+        className="border-y-[10px] border-black bg-[#FF5500] py-12 md:border-y-[12px] md:py-16"
+        {...m.ctaSection}
+      >
+        <div className="mx-auto flex max-w-7xl flex-col items-stretch justify-between gap-8 px-6 lg:flex-row lg:items-center lg:gap-12">
+          <h2 className="max-w-3xl text-left font-extrabold uppercase leading-[0.9] tracking-tighter">
+            <span className="block text-[clamp(2.25rem,6vw,4rem)] text-white">
+              JOIN THE
+            </span>
+            <span className="block text-[clamp(2.75rem,7vw,5rem)] leading-[0.95] text-white/55">
+              MOVEMENT
+            </span>
+          </h2>
+          <div className="flex w-full flex-col gap-3 sm:flex-row sm:justify-end lg:w-auto lg:shrink-0 lg:gap-3">
             <MotionLink
               to={PATH_DOWNLOAD}
-              className="w-full rounded-md bg-white px-6 py-3.5 text-center text-sm font-bold uppercase tracking-wide text-brand-bg hover:opacity-95 md:w-auto"
+              className="inline-flex min-h-[48px] items-center justify-center rounded-none bg-white px-6 py-3.5 text-center text-xs font-bold uppercase tracking-[0.2em] text-[#FF5500] hover:opacity-95"
               {...m.buttonHoverProps}
             >
               DOWNLOAD THE APP
             </MotionLink>
             <MotionLink
               to={PATH_DRIVE_WITH_US}
-              className="w-full rounded-md bg-brand-bg px-6 py-3.5 text-center text-sm font-bold uppercase tracking-wide text-white hover:opacity-95 md:w-auto"
+              className="inline-flex min-h-[48px] items-center justify-center rounded-none bg-[#B23B00] px-6 py-3.5 text-center text-xs font-bold uppercase tracking-[0.2em] text-white hover:opacity-95"
               {...m.buttonHoverProps}
             >
               DRIVE WITH US
@@ -49,23 +46,26 @@ export default function CTASection({ variant = "services" }) {
 
   if (variant === "driver") {
     return (
-      <motion.section className="bg-brand-orange py-16 md:py-24" {...m.ctaSection}>
-        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-6 md:flex-row md:items-end md:gap-12">
-          <h2 className="max-w-2xl font-extrabold uppercase leading-[0.95] tracking-tighter text-white text-[clamp(2.25rem,6vw,4rem)]">
-            <span className="block">APPLY TODAY.</span>
-            <span className="block">TAKE 5 MINUTES.</span>
+      <motion.section
+        className="bg-[#FF5500] py-14 md:py-20 lg:py-24"
+        {...m.ctaSection}
+      >
+        <div className="mx-auto flex w-full max-w-7xl flex-col items-start gap-10 px-6 sm:px-8 md:px-10 lg:flex-row lg:items-center lg:justify-between lg:gap-12 lg:px-12 xl:gap-20">
+          <h2 className="max-w-xl text-left font-extrabold uppercase tracking-tighter text-[clamp(2.25rem,6vw,4rem)] leading-[0.82] lg:max-w-2xl">
+            <span className="block text-white">APPLY TODAY.</span>
+            <span className="block text-[#FF9E7D]">TAKE 5 MINUTES.</span>
           </h2>
-          <div className="flex w-full flex-col gap-4 sm:flex-row sm:justify-end md:w-auto">
+          <div className="flex w-full flex-col gap-3.5 sm:flex-row sm:justify-end sm:gap-4 lg:w-auto lg:shrink-0">
             <MotionLink
               to={`${PATH_DRIVE_WITH_US}#driver-steps`}
-              className="w-full rounded-md bg-white px-6 py-3.5 text-center text-sm font-bold uppercase tracking-wide text-brand-orange hover:opacity-95 md:w-auto"
+              className="inline-flex min-h-[52px] flex-1 items-center justify-center rounded-none bg-white px-8 py-4 text-center text-xs font-bold uppercase tracking-[0.2em] text-[#FF5500] hover:opacity-95 sm:flex-initial sm:min-w-[12rem] md:px-10"
               {...m.buttonHoverProps}
             >
               APPLY TO DRIVE NOW
             </MotionLink>
             <motion.a
               href="mailto:hello@getdrives.com"
-              className="w-full rounded-md bg-brand-bg px-6 py-3.5 text-center text-sm font-bold uppercase tracking-wide text-white hover:opacity-95 md:w-auto"
+              className="inline-flex min-h-[52px] flex-1 items-center justify-center rounded-none bg-[#B33C00] px-8 py-4 text-center text-xs font-bold uppercase tracking-[0.2em] text-white hover:opacity-95 sm:flex-initial sm:min-w-[12rem] md:px-10"
               {...m.buttonHoverProps}
             >
               CONTACT SUPPORT
@@ -78,23 +78,26 @@ export default function CTASection({ variant = "services" }) {
 
   if (variant === "landing") {
     return (
-      <motion.section className="bg-brand-orange py-16 md:py-24" {...m.ctaSection}>
-        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-6 md:flex-row md:items-end md:gap-12">
-          <h2 className="max-w-2xl font-extrabold uppercase leading-[0.95] tracking-tighter text-white text-[clamp(2.25rem,6vw,4rem)]">
-            <span className="block">READY TO</span>
-            <span className="block">RIDE SMARTER?</span>
+      <motion.section
+        className="border-y border-black bg-brand-orange py-12 md:py-16"
+        {...m.ctaSection}
+      >
+        <div className="mx-auto flex max-w-7xl flex-col items-stretch justify-between gap-8 px-6 lg:flex-row lg:items-center lg:gap-12">
+          <h2 className="max-w-xl text-left font-extrabold uppercase leading-[0.9] tracking-tighter text-[clamp(2.25rem,6vw,4rem)]">
+            <span className="block text-white">READY TO</span>
+            <span className="block text-white/65">RIDE SMARTER?</span>
           </h2>
-          <div className="flex w-full flex-col gap-4 sm:flex-row sm:justify-end md:w-auto">
+          <div className="flex w-full flex-col gap-3 sm:flex-row sm:justify-end lg:w-auto lg:shrink-0 lg:gap-3">
             <MotionLink
               to={PATH_DOWNLOAD}
-              className="w-full rounded-md bg-white px-6 py-3.5 text-center text-sm font-bold uppercase tracking-wide text-brand-bg hover:opacity-95 md:w-auto"
+              className="inline-flex min-h-[48px] items-center justify-center rounded-none bg-white px-6 py-3.5 text-center text-xs font-bold uppercase tracking-[0.2em] text-brand-orange hover:opacity-95"
               {...m.buttonHoverProps}
             >
               DOWNLOAD THE APP
             </MotionLink>
             <MotionLink
               to={PATH_DRIVE_WITH_US}
-              className="w-full rounded-md bg-brand-bg px-6 py-3.5 text-center text-sm font-bold uppercase tracking-wide text-white hover:opacity-95 md:w-auto"
+              className="inline-flex min-h-[48px] items-center justify-center rounded-none bg-[#B23B00] px-6 py-3.5 text-center text-xs font-bold uppercase tracking-[0.2em] text-white hover:opacity-95"
               {...m.buttonHoverProps}
             >
               DRIVE WITH GETDRIVES
@@ -106,23 +109,23 @@ export default function CTASection({ variant = "services" }) {
   }
 
   return (
-    <motion.section className="bg-brand-orange py-16 md:py-24" {...m.ctaSection}>
-      <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-6 md:flex-row md:items-end md:gap-12">
-        <h2 className="max-w-xl font-extrabold uppercase leading-[0.95] tracking-tighter text-white text-[clamp(2rem,5vw,3.25rem)]">
-          <span className="block">READY TO.</span>
-          <span className="block">MOVE SMARTER?</span>
+    <motion.section className="bg-brand-orange py-12 md:py-16" {...m.ctaSection}>
+      <div className="mx-auto flex max-w-7xl flex-col items-stretch justify-between gap-8 px-6 lg:flex-row lg:items-center lg:gap-12">
+        <h2 className="max-w-xl text-left font-extrabold uppercase leading-[0.9] tracking-tighter text-[clamp(2.25rem,6vw,4rem)]">
+          <span className="block text-white">READY TO.</span>
+          <span className="block text-white/65">MOVE SMARTER?</span>
         </h2>
-        <div className="flex w-full flex-col gap-4 sm:flex-row sm:justify-end md:w-auto">
+        <div className="flex w-full flex-col gap-3 sm:flex-row sm:justify-end lg:w-auto lg:shrink-0 lg:gap-3">
           <MotionLink
             to={PATH_DOWNLOAD}
-            className="w-full rounded-md bg-white px-6 py-3.5 text-center text-sm font-bold uppercase tracking-wide text-brand-bg hover:opacity-95 md:w-auto"
+            className="inline-flex min-h-[48px] items-center justify-center rounded-none bg-white px-6 py-3.5 text-center text-xs font-bold uppercase tracking-[0.2em] text-brand-orange hover:opacity-95"
             {...m.buttonHoverProps}
           >
             GET THE APP
           </MotionLink>
           <MotionLink
             to="/about#contact"
-            className="w-full rounded-md bg-brand-bg px-6 py-3.5 text-center text-sm font-bold uppercase tracking-wide text-white hover:opacity-95 md:w-auto"
+            className="inline-flex min-h-[48px] items-center justify-center rounded-none border border-white bg-transparent px-6 py-3.5 text-center text-xs font-bold uppercase tracking-[0.2em] text-white hover:bg-white/10"
             {...m.buttonHoverProps}
           >
             TALK TO US

@@ -6,10 +6,10 @@ import { useAccessibleMotion } from "../motionPresets";
 const MotionLink = motion(Link);
 
 const tags = [
-  "Low Commission",
-  "Flexible Hours",
-  "Instant Payouts",
-  "No Hidden Fees",
+  "LOW COMMISSION",
+  "FLEXIBLE HOURS",
+  "INSTANT PAYOUTS",
+  "24/7 SUPPORT",
 ];
 
 export default function DriverFeature() {
@@ -19,23 +19,21 @@ export default function DriverFeature() {
     <section id="drivers" className="py-16 md:py-24">
       <div className="mx-auto grid min-w-0 max-w-7xl items-center gap-8 px-6 md:gap-12 lg:grid-cols-2 lg:gap-16">
         <motion.div className="space-y-6" {...m.splitText}>
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-orange">
-            FOR DRIVERS
-          </p>
           <h2 className="font-extrabold uppercase leading-[0.95] tracking-tighter text-white text-[clamp(1.75rem,4vw,2.75rem)]">
             <span className="block">EARN MORE.</span>
             <span className="block">KEEP MORE.</span>
             <span className="block">DRIVE FREE.</span>
           </h2>
           <p className="w-full max-w-[90%] text-base leading-relaxed sm:max-w-xl text-brand-gray">
-            Maximize what you keep with fair rates, instant payouts, and tools
-            designed for drivers who want earnings without the fine print.
+            GetDrives is a platform that empowers drivers by giving them the freedom
+            to keep more of their earnings. We charge a flat fee per ride, so you keep
+            what you earn.
           </p>
           <div className="flex flex-wrap gap-2">
             {tags.map((t) => (
               <span
                 key={t}
-                className="rounded-sm border border-gray-700 px-3 py-1.5 text-[11px] font-medium text-white"
+                className="rounded-sm border border-gray-700 px-3 py-1.5 text-[11px] font-medium uppercase text-white"
               >
                 {t}
               </span>
@@ -46,7 +44,7 @@ export default function DriverFeature() {
             className="mt-2 inline-flex w-full items-center justify-center rounded-md bg-brand-orange px-6 py-3.5 text-center text-sm font-bold uppercase tracking-wide text-white hover:opacity-95 md:w-auto md:max-w-sm"
             {...m.buttonHoverProps}
           >
-            GET ON THE ROAD
+            START DRIVING
           </MotionLink>
         </motion.div>
 
@@ -55,12 +53,12 @@ export default function DriverFeature() {
           {...m.splitImageRight}
         >
           <img
-            src="/driver-woman.jpg"
-            alt="Driver smiling in vehicle"
+            src="/homepage-woman.png"
+            alt="Passenger smiling by the car window in golden light"
             loading="lazy"
             decoding="async"
             sizes="(max-width: 1024px) 100vw, min(520px, 50vw)"
-            className="aspect-[4/3] w-full object-cover object-top md:aspect-[5/4]"
+            className="aspect-[4/3] w-full object-cover object-center md:aspect-[5/4]"
           />
         </motion.div>
       </div>

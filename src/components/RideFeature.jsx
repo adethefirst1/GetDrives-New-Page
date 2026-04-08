@@ -6,10 +6,10 @@ import { useAccessibleMotion } from "../motionPresets";
 const MotionLink = motion(Link);
 
 const tags = [
-  "Set Your Price",
-  "Choose Your Driver",
-  "Safe & Secure",
-  "24/7 Support",
+  "FAIR PRICING",
+  "CHOOSE DRIVER",
+  "SAFETY FIRST",
+  "24/7 SUPPORT",
 ];
 
 export default function RideFeature() {
@@ -23,8 +23,8 @@ export default function RideFeature() {
           {...m.splitImageLeft}
         >
           <img
-            src="/ride-pov.jpg"
-            alt="Driver perspective inside the car at night with navigation"
+            src="/homepage-pov.png"
+            alt="Driver using GPS navigation on a sunny highway"
             loading="lazy"
             decoding="async"
             sizes="(max-width: 1024px) 100vw, min(520px, 50vw)"
@@ -36,23 +36,21 @@ export default function RideFeature() {
           className="order-1 space-y-6 lg:order-2"
           {...m.splitText}
         >
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-orange">
-            FOR RIDERS
-          </p>
           <h2 className="font-extrabold uppercase leading-[0.95] tracking-tighter text-white text-[clamp(1.75rem,4vw,2.75rem)]">
             <span className="block">YOUR FARE.</span>
             <span className="block">YOUR DRIVER.</span>
             <span className="block">YOUR RIDE.</span>
           </h2>
           <p className="w-full max-w-[90%] text-base leading-relaxed sm:max-w-xl text-brand-gray">
-            Flexibility at every step: set your price, choose your driver, and ride
-            with confidence knowing support is always one tap away.
+            GetDrives is a platform that empowers riders by giving them the freedom to
+            choose their driver and negotiate their fare. No more surge pricing or
+            hidden fees.
           </p>
           <div className="flex flex-wrap gap-2">
             {tags.map((t) => (
               <span
                 key={t}
-                className="rounded-sm border border-gray-700 px-3 py-1.5 text-[11px] font-medium text-white"
+                className="rounded-sm border border-gray-700 px-3 py-1.5 text-[11px] font-medium uppercase text-white"
               >
                 {t}
               </span>

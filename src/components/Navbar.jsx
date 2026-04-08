@@ -127,7 +127,7 @@ export default function Navbar() {
             className="relative hidden rounded-md bg-brand-orange px-6 py-3.5 text-xs font-bold uppercase tracking-wide text-white hover:opacity-95 md:inline-flex"
             {...m.buttonHoverProps}
           >
-            START DRIVING
+            START EARNING
           </MotionLink>
 
           <button
@@ -192,7 +192,7 @@ export default function Navbar() {
                   {...m.buttonHoverProps}
                   onClick={close}
                 >
-                  START DRIVING
+                  START EARNING
                 </MotionLink>
               </div>
             </motion.nav>

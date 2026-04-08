@@ -5,14 +5,26 @@ const simpleItems = [
   "CORPORATE ACCOUNTS",
   "INTERCITY TRIPS",
   "NO SURGE PRICING",
+  "SET YOUR FARE",
+];
+
+/** Drive page: auto-scrolling ticker — copy and colors match UI mock. */
+const driveMarqueeItems = [
+  "CITY RIDES",
+  "PREMIUM RIDES",
+  "LOGISTICS & DELIVERY",
+  "CORPORATE ACCOUNTS",
+  "INTERCITY TRIPS",
+  "NO SURGE PRICING",
+  "SET YOUR OWN PRICE",
 ];
 
 const items = [
   { label: "CITY RIDES", Icon: IconCar },
   { label: "PREMIUM RIDES", Icon: IconCrown },
-  { label: "DELIVERY", Icon: IconBox },
-  { label: "BUSINESS SERVICES", Icon: IconBrief },
-  { label: "SECURE PAYMENTS", Icon: IconLock },
+  { label: "DELIVERY SERVICES", Icon: IconBox },
+  { label: "BUSINESS SOLUTIONS", Icon: IconBrief },
+  { label: "COURIER SERVICES", Icon: IconTruck },
   { label: "24/7 SUPPORT", Icon: IconHeadset },
 ];
 
@@ -68,14 +80,20 @@ function IconBrief({ className }) {
   );
 }
 
-function IconLock({ className }) {
+function IconTruck({ className }) {
   return (
     <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth={1.5}
-        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+        d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"
+      />
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={1.5}
+        d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10h2m8 0h2m-8 0H4m9-4h6l4 4v2h-3"
       />
     </svg>
   );
@@ -94,19 +112,68 @@ function IconHeadset({ className }) {
   );
 }
 
+function MarqueeSegment({ label }) {
+  return (
+    <span className="inline-flex items-center gap-3 whitespace-nowrap">
+      <span
+        className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#FF5722]"
+        aria-hidden
+      />
+      <span className="text-[10px] font-semibold uppercase leading-none tracking-[0.2em] text-[#666666] sm:text-[11px]">
+        {label}
+      </span>
+    </span>
+  );
+}
+
 export default function CategoryStrip({ variant = "icons" }) {
+  if (variant === "marquee") {
+    return (
+      <section
+        className="bg-black py-8 md:py-10"
+        aria-label="Service highlights"
+      >
+        <div className="mx-auto hidden max-w-7xl flex-wrap items-center justify-center gap-x-6 gap-y-3 px-6 motion-reduce:flex sm:gap-x-8 md:gap-x-10">
+          {driveMarqueeItems.map((label) => (
+            <MarqueeSegment key={label} label={label} />
+          ))}
+        </div>
+        <div className="relative overflow-hidden motion-reduce:hidden">
+          <div className="flex w-max motion-safe:animate-driver-marquee">
+            {[0, 1].map((dup) => (
+              <div
+                key={dup}
+                className="flex shrink-0 items-center gap-x-10 pr-10 sm:gap-x-12 sm:pr-12 md:gap-x-14 md:pr-14"
+                aria-hidden={dup === 1}
+              >
+                {driveMarqueeItems.map((label) => (
+                  <MarqueeSegment key={`${dup}-${label}`} label={label} />
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   if (variant === "simple") {
     return (
-      <section className="border-b border-white/[0.06] bg-brand-bg py-10 md:py-14">
+      <section
+        className="border-b border-white/[0.06] bg-brand-bg py-8 md:py-12"
+        aria-label="Service highlights"
+      >
         <div className="mx-auto max-w-7xl px-6">
-          <div className="flex flex-wrap items-center justify-center gap-x-1 gap-y-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-white md:gap-x-2 md:text-[11px]">
-            {simpleItems.map((label, i) => (
-              <span key={label} className="flex items-center">
-                {i > 0 && (
-                  <span className="mx-2 text-brand-orange md:mx-3" aria-hidden>
-                    •
-                  </span>
-                )}
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2.5 sm:gap-x-5 md:gap-x-6">
+            {simpleItems.map((label) => (
+              <span
+                key={label}
+                className="inline-flex items-center gap-2 whitespace-nowrap font-semibold uppercase leading-none tracking-[0.18em] text-brand-gray text-[10px] sm:text-[11px]"
+              >
+                <span
+                  className="h-1.5 w-1.5 shrink-0 rounded-full bg-brand-orange"
+                  aria-hidden
+                />
                 {label}
               </span>
             ))}

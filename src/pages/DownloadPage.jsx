@@ -1,8 +1,11 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { STORE_URL_APPLE, STORE_URL_GOOGLE_PLAY } from "../ctaCopy";
+import { DOCUMENT_TITLES, useDocumentTitle } from "../useDocumentTitle";
 
 export default function DownloadPage() {
+  useDocumentTitle(DOCUMENT_TITLES.download);
+
   return (
     <div className="min-h-screen bg-brand-bg">
       <Navbar />

@@ -59,11 +59,37 @@ function IconMap({ className }) {
   );
 }
 
+const CONTACT_EMAIL = "hello@getdrives.com";
+
+function submitToHello(e) {
+  e.preventDefault();
+  const form = e.currentTarget;
+  const fd = new FormData(form);
+  const name = String(fd.get("name") ?? "").trim();
+  const email = String(fd.get("email") ?? "").trim();
+  const subject = String(fd.get("subject") ?? "").trim();
+  const message = String(fd.get("message") ?? "").trim();
+  if (!email) {
+    form.querySelector("#email")?.focus();
+    return;
+  }
+  const lines = [];
+  if (name) lines.push(`Name: ${name}`);
+  lines.push(`Email: ${email}`);
+  lines.push("");
+  lines.push(message || "(No message text)");
+  const body = lines.join("\n");
+  const href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
+    subject || "Message from GetDrives contact form"
+  )}&body=${encodeURIComponent(body)}`;
+  window.location.href = href;
+}
+
 export default function ContactSection() {
   const m = useAccessibleMotion();
 
   return (
-    <section id="contact" className="py-16 md:py-24">
+    <section id="contact" className="bg-black py-16 md:py-24">
       <div className="mx-auto grid min-w-0 max-w-7xl gap-8 px-6 md:grid-cols-2 md:gap-16">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.35em] text-brand-orange">
@@ -85,8 +111,16 @@ export default function ContactSection() {
                 <p className="text-xs font-bold uppercase tracking-wide text-white">
                   CALL US
                 </p>
-                <p className="mt-2 leading-relaxed">+234 812 345 6789</p>
-                <p className="leading-relaxed">+234 907 654 3210</p>
+                <p className="mt-2 leading-relaxed">
+                  <a href="tel:+2348036232480" className="hover:text-white">
+                    +234 803 623 2480
+                  </a>
+                </p>
+                <p className="leading-relaxed">
+                  <a href="tel:+2348038617226" className="hover:text-white">
+                    +234 803 861 7226
+                  </a>
+                </p>
               </div>
             </li>
             <li className="flex gap-4">
@@ -128,77 +162,90 @@ export default function ContactSection() {
                   HEADQUARTERS
                 </p>
                 <p className="mt-2 leading-relaxed">
-                  15 Aguiyi Ironsi Street, Maitama, Abuja, Nigeria
+                  Suite D5, Mazado plaza, behind Juluis berger yard, Utako, Abuja
+                  FCT, Nigeria.
                 </p>
               </div>
             </li>
           </ul>
         </div>
 
-        <form
-          className="space-y-5"
-          onSubmit={(e) => e.preventDefault()}
-        >
-          <div>
-            <label htmlFor="name" className="sr-only">
-              Your Name
-            </label>
-            <input
-              id="name"
-              name="name"
-              type="text"
-              autoComplete="name"
-              placeholder="Your Name"
-              className="min-h-[44px] w-full rounded-md border border-gray-800 bg-transparent px-4 py-3 text-sm text-white placeholder:text-brand-gray focus:border-brand-orange focus:outline-none"
-            />
-          </div>
-          <div>
-            <label htmlFor="email" className="sr-only">
-              Email Address
-            </label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              autoComplete="email"
-              placeholder="Email Address"
-              className="min-h-[44px] w-full rounded-md border border-gray-800 bg-transparent px-4 py-3 text-sm text-white placeholder:text-brand-gray focus:border-brand-orange focus:outline-none"
-            />
-          </div>
-          <div>
-            <label htmlFor="subject" className="sr-only">
-              Subject
-            </label>
-            <input
-              id="subject"
-              name="subject"
-              type="text"
-              autoComplete="off"
-              placeholder="Subject"
-              className="min-h-[44px] w-full rounded-md border border-gray-800 bg-transparent px-4 py-3 text-sm text-white placeholder:text-brand-gray focus:border-brand-orange focus:outline-none"
-            />
-          </div>
-          <div>
-            <label htmlFor="message" className="sr-only">
-              Message
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              rows={5}
-              autoComplete="off"
-              placeholder="Message"
-              className="min-h-[120px] w-full resize-y rounded-md border border-gray-800 bg-transparent px-4 py-3 text-sm text-white placeholder:text-brand-gray focus:border-brand-orange focus:outline-none"
-            />
-          </div>
-          <motion.button
-            type="submit"
-            className="w-full rounded-md bg-brand-orange px-6 py-3.5 text-sm font-bold uppercase tracking-wide text-white hover:opacity-95 md:w-auto"
-            {...m.buttonHoverProps}
-          >
-            SEND MESSAGE
-          </motion.button>
-        </form>
+        <div className="border border-[#333333] p-8 md:p-10 lg:p-12">
+          <form className="space-y-6 text-left" onSubmit={submitToHello}>
+            <div>
+              <label
+                htmlFor="name"
+                className="mb-2 block text-xs font-normal uppercase tracking-wide text-[#666666]"
+              >
+                YOUR NAME
+              </label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                autoComplete="name"
+                placeholder="e.g. Emeka Johnson"
+                className="min-h-[44px] w-full rounded-none border border-[#222222] bg-[#0A0A0A] px-4 py-3 text-sm text-white placeholder:text-[#888888] focus:border-[#F15A29] focus:outline-none focus:ring-0"
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="email"
+                className="mb-2 block text-xs font-normal uppercase tracking-wide text-[#666666]"
+              >
+                EMAIL ADDRESS
+              </label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                autoComplete="email"
+                placeholder="you@example.com"
+                className="min-h-[44px] w-full rounded-none border border-[#222222] bg-[#0A0A0A] px-4 py-3 text-sm text-white placeholder:text-[#888888] focus:border-[#F15A29] focus:outline-none focus:ring-0"
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="subject"
+                className="mb-2 block text-xs font-normal uppercase tracking-wide text-[#666666]"
+              >
+                SUBJECT
+              </label>
+              <input
+                id="subject"
+                name="subject"
+                type="text"
+                autoComplete="off"
+                defaultValue="General Enquiry"
+                className="min-h-[44px] w-full rounded-none border border-[#222222] bg-[#0A0A0A] px-4 py-3 text-sm text-white focus:border-[#F15A29] focus:outline-none focus:ring-0"
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="message"
+                className="mb-2 block text-xs font-normal uppercase tracking-wide text-[#666666]"
+              >
+                MESSAGE
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                rows={6}
+                autoComplete="off"
+                placeholder="Tell us what's on your mind..."
+                className="min-h-[140px] w-full resize-y rounded-none border border-[#222222] bg-[#0A0A0A] px-4 py-3 text-sm text-white placeholder:text-[#888888] focus:border-[#F15A29] focus:outline-none focus:ring-0"
+              />
+            </div>
+            <motion.button
+              type="submit"
+              className="inline-flex min-h-[44px] items-center justify-center rounded-none bg-[#F15A29] px-10 py-3 text-xs font-bold uppercase tracking-[0.2em] text-white hover:opacity-95"
+              {...m.buttonHoverProps}
+            >
+              SEND MESSAGE
+            </motion.button>
+          </form>
+        </div>
       </div>
     </section>
   );

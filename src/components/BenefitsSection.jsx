@@ -1,79 +1,182 @@
 import { motion } from "framer-motion";
 import { inView, useAccessibleMotion } from "../motionPresets";
 
-function IconClock({ className }) {
+const iconClass =
+  "h-10 w-10 shrink-0 text-white [shape-rendering:geometricPrecision]";
+
+function IconAlarmClock({ className = iconClass }) {
   return (
-    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden
+    >
+      <circle
+        cx="12"
+        cy="14"
+        r="7"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      />
       <path
+        d="M12 11v3.5l2.5 1.5"
+        stroke="currentColor"
+        strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
-        strokeWidth={1.5}
-        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+      />
+      <path
+        d="M7 3L5.5 1.5M17 3l1.5-1.5M9 2h6"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
 }
 
-function IconWallet({ className }) {
+function IconMoneyBag({ className = iconClass }) {
   return (
-    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden
+    >
       <path
-        strokeLinecap="round"
+        d="M12 3c-1.5 0-3 .8-3 2.2V7h6V5.2C15 3.8 13.5 3 12 3z"
+        stroke="currentColor"
+        strokeWidth="1.5"
         strokeLinejoin="round"
-        strokeWidth={1.5}
-        d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
+      />
+      <path
+        d="M6 7h12v2c0 4.5-2.5 8-6 8s-6-3.5-6-8V7z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinejoin="round"
+      />
+      <circle cx="12" cy="11" r="2.25" stroke="currentColor" strokeWidth="1.5" />
+      <path
+        d="M12 9.2v3.6M10.1 11h3.8"
+        stroke="currentColor"
+        strokeWidth="1.2"
+        strokeLinecap="round"
       />
     </svg>
   );
 }
 
-function IconShield({ className }) {
+function IconShield({ className = iconClass }) {
   return (
-    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden
+    >
       <path
-        strokeLinecap="round"
+        d="M12 21s8-4 8-10V5l-8-3-8 3v6c0 6 8 10 8 10z"
+        stroke="currentColor"
+        strokeWidth="1.5"
         strokeLinejoin="round"
-        strokeWidth={1.5}
-        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
       />
     </svg>
   );
 }
 
-function IconPhone({ className }) {
+function IconSmartphoneApps({ className = iconClass }) {
   return (
-    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden
+    >
+      <rect
+        x="6"
+        y="2"
+        width="12"
+        height="20"
+        rx="2"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      />
+      <path d="M9 18h6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      <rect x="8.5" y="5" width="2.5" height="2.5" rx="0.4" stroke="currentColor" strokeWidth="1.2" />
+      <rect x="12" y="5" width="2.5" height="2.5" rx="0.4" stroke="currentColor" strokeWidth="1.2" />
+      <rect x="8.5" y="8.5" width="2.5" height="2.5" rx="0.4" stroke="currentColor" strokeWidth="1.2" />
+      <rect x="12" y="8.5" width="2.5" height="2.5" rx="0.4" stroke="currentColor" strokeWidth="1.2" />
+    </svg>
+  );
+}
+
+function IconGift({ className = iconClass }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden
+    >
       <path
+        d="M4 9h16v3H4V9zM12 9V21"
+        stroke="currentColor"
+        strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
-        strokeWidth={1.5}
-        d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
+      />
+      <path
+        d="M8 9c0-2 1.5-4 4-4s4 2 4 4M8 9c0 2 1.5 4 4 4s4-2 4-4"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M4 12h16v10H4V12z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinejoin="round"
       />
     </svg>
   );
 }
 
-function IconGift({ className }) {
+function IconHandshake({ className = iconClass }) {
   return (
-    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden
+    >
       <path
+        d="M11 14l-2-2a2 2 0 00-2.8 0h-.1a2 2 0 000 2.8l3 3a2 2 0 002.8 0L18 12"
+        stroke="currentColor"
+        strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
-        strokeWidth={1.5}
-        d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"
       />
-    </svg>
-  );
-}
-
-function IconSupport({ className }) {
-  return (
-    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path
+        d="M14 11l2-2a2 2 0 012.8 0h.1a2 2 0 010 2.8l-3 3"
+        stroke="currentColor"
+        strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
-        strokeWidth={1.5}
-        d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"
+      />
+      <path
+        d="M8 10V8a2 2 0 012-2h1M16 10V8a2 2 0 00-2-2h-1"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
       />
     </svg>
   );
@@ -81,34 +184,34 @@ function IconSupport({ className }) {
 
 const benefits = [
   {
-    title: "Flexible Hours",
-    body: "Drive when it works for you, peak times or off-peak. You control your schedule.",
-    Icon: IconClock,
+    title: "FLEXIBLE HOURS",
+    body: "Drive whenever suits you — full-time, part-time, mornings or nights. No minimum hours, no scheduling pressure.",
+    Icon: IconAlarmClock,
   },
   {
-    title: "Fair Earnings",
-    body: "Competitive rates and clear payouts so you always know what you take home.",
-    Icon: IconWallet,
+    title: "FAIR EARNINGS",
+    body: "Nigeria's lowest commission rates. See exactly what you'll earn before accepting every single trip — no surprises.",
+    Icon: IconMoneyBag,
   },
   {
-    title: "Full Insurance",
-    body: "Coverage options designed to help protect you and your vehicle on the road.",
+    title: "FULL INSURANCE",
+    body: "Every trip covered by comprehensive insurance. You and your passenger are protected on every journey.",
     Icon: IconShield,
   },
   {
-    title: "Smart Driver App",
-    body: "Navigation, trips, and earnings in one place, built for life behind the wheel.",
-    Icon: IconPhone,
+    title: "SMART DRIVER APP",
+    body: "Navigation, earnings tracker, and 24/7 support — all in one intuitive driver interface built for Nigerian roads.",
+    Icon: IconSmartphoneApps,
   },
   {
-    title: "Bonuses & Rewards",
-    body: "Unlock incentives for streaks, peak hours, and strong rider ratings.",
+    title: "BONUSES & REWARDS",
+    body: "Peak-hour bonuses, trip milestone rewards, and a performance program that actually pays out consistently.",
     Icon: IconGift,
   },
   {
-    title: "Real Support",
-    body: "Talk to real people when you need help: onboarding, payouts, or on-trip issues.",
-    Icon: IconSupport,
+    title: "REAL SUPPORT",
+    body: "Human support agents available around the clock. When something goes wrong, a real person is there to fix it.",
+    Icon: IconHandshake,
   },
 ];
 
@@ -116,36 +219,40 @@ export default function BenefitsSection() {
   const m = useAccessibleMotion();
 
   return (
-    <section className="py-16 md:py-24">
-      <div className="mx-auto max-w-7xl px-6">
-        <p className="text-xs font-semibold uppercase tracking-[0.35em] text-brand-orange">
+    <section className="bg-black py-16 md:py-24">
+      <div className="mx-auto max-w-7xl px-6 md:px-8">
+        <p className="text-left text-xs font-semibold uppercase tracking-[0.25em] text-brand-orange">
           WHY DRIVE WITH US
         </p>
-        <h2 className="mt-4 font-extrabold uppercase leading-[0.95] tracking-tighter text-white text-[clamp(1.75rem,4vw,2.75rem)]">
+        <h2 className="mt-4 text-left font-extrabold uppercase leading-[0.95] tracking-tighter text-[clamp(1.75rem,4vw,2.75rem)] text-white">
           <span className="block">EVERYTHING YOU NEED</span>
           <span className="block">TO SUCCEED.</span>
         </h2>
 
         <motion.div
-          className="mt-10 grid gap-8 sm:grid-cols-2 md:mt-12 md:gap-12 lg:grid-cols-3 lg:gap-12"
+          className="mt-10 md:mt-14"
           initial="hidden"
           whileInView="show"
           viewport={inView}
           variants={m.cardListVariants}
         >
-          {benefits.map(({ title, body, Icon }) => (
-            <motion.article
-              key={title}
-              className="flex h-full flex-col border border-white/[0.06] p-8"
-              variants={m.cardItemVariants}
-            >
-              <Icon className="h-8 w-8 text-brand-orange" />
-              <h3 className="mt-6 font-bold text-white">{title}</h3>
-              <p className="mt-3 flex-1 text-sm leading-relaxed text-brand-gray">
-                {body}
-              </p>
-            </motion.article>
-          ))}
+          <div className="grid grid-cols-1 gap-px bg-[#333333] sm:grid-cols-2">
+            {benefits.map(({ title, body, Icon }) => (
+              <motion.article
+                key={title}
+                className="flex min-h-0 flex-col bg-black px-8 py-10 text-left md:px-10 md:py-12"
+                variants={m.cardItemVariants}
+              >
+                <Icon />
+                <h3 className="mt-6 font-bold uppercase leading-snug tracking-wide text-white">
+                  {title}
+                </h3>
+                <p className="mt-3 text-sm font-normal leading-relaxed text-[#BBBBBB]">
+                  {body}
+                </p>
+              </motion.article>
+            ))}
+          </div>
         </motion.div>
       </div>
     </section>

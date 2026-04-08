@@ -11,7 +11,7 @@ const rideTags = [
   "PLUS",
   "PREMIUM",
   "SHARED RIDES",
-  "AIRPORT TRANSFERS",
+  "AIRPORT TRANSFERS APP",
 ];
 
 export default function RideSection() {
@@ -19,9 +19,9 @@ export default function RideSection() {
 
   return (
     <section className="py-16 md:py-24">
-      <div className="mx-auto grid min-w-0 max-w-7xl items-center gap-8 px-6 md:gap-12 lg:grid-cols-2 lg:gap-16">
+      <div className="mx-auto grid min-w-0 max-w-7xl items-stretch gap-0 px-6 md:px-8 lg:grid-cols-2">
         <motion.div
-          className="order-2 overflow-hidden rounded-lg lg:order-1 lg:max-w-none lg:w-[min(100%,520px)] lg:-translate-x-4 xl:-translate-x-8"
+          className="order-2 overflow-hidden lg:order-1"
           {...m.splitImageLeft}
         >
           <img
@@ -30,31 +30,30 @@ export default function RideSection() {
             loading="lazy"
             decoding="async"
             sizes="(max-width: 1024px) 100vw, min(520px, 50vw)"
-            className="w-full object-cover object-center"
+            className="h-full min-h-[240px] w-full object-cover object-center lg:min-h-[420px]"
           />
         </motion.div>
 
         <motion.div
-          className="order-1 space-y-6 lg:order-2"
+          className="order-1 flex flex-col justify-center space-y-6 bg-black px-6 py-10 md:px-8 md:py-14 lg:order-2 lg:px-12 lg:py-16 xl:px-16"
           {...m.splitText}
         >
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-orange">
-            01 / RIDE SERVICES
+            01 — RIDE SERVICES
           </p>
           <h2 className="font-extrabold uppercase leading-[0.95] tracking-tighter text-[clamp(1.75rem,4vw,2.75rem)] text-white">
             <span className="block">FAST RIDE.</span>
             <span className="block">FAIR FARES.</span>
             <span className="block">YOUR CHOICE.</span>
           </h2>
-          <p className="w-full max-w-[90%] text-base leading-relaxed sm:max-w-xl text-brand-gray">
-            Request your ride and watch drivers compete for your fare. Choose
-            Standard, Plus, Premium, shared rides, or airport transfers, with
-            transparent pricing on every trip.
+          <p className="w-full max-w-xl text-base leading-relaxed text-brand-gray">
+            Set the fare you want to pay, browse drivers by rating and ETA, and
+            confirm only when you&apos;re happy. No surge pricing. Ever.
           </p>
           <TagRow tags={rideTags} />
           <MotionLink
             to={PATH_DOWNLOAD}
-            className="mt-2 inline-flex w-full items-center justify-center rounded-md bg-brand-orange px-6 py-3.5 text-center text-sm font-bold uppercase tracking-wide text-white md:w-auto md:max-w-md"
+            className="mt-2 inline-flex w-full max-w-md items-center justify-center rounded-none bg-brand-orange px-6 py-3.5 text-center text-sm font-bold uppercase tracking-[0.2em] text-white"
             {...m.buttonHoverProps}
           >
             BOOK A RIDE

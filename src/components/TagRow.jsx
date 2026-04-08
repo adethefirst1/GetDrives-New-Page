@@ -4,7 +4,7 @@ export default function TagRow({ tags }) {
       {tags.map((tag) => (
         <span
           key={tag}
-          className="rounded-sm border border-gray-700 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-white"
+          className="rounded-none border border-[#555555] px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.15em] text-white"
         >
           {tag}
         </span>

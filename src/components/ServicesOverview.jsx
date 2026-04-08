@@ -17,14 +17,14 @@ function IconCity({ className }) {
   );
 }
 
-function IconStar({ className }) {
+function IconDiamond({ className }) {
   return (
     <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth={1.5}
-        d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+        d="M12 3l6.5 8.5L12 21l-6.5-9.5L12 3z"
       />
     </svg>
   );
@@ -59,22 +59,22 @@ function IconBriefcase({ className }) {
 const cards = [
   {
     title: "CITY RIDES",
-    desc: "Reliable everyday travel across town, with quick pickups and routes you trust.",
+    desc: "Affordable and reliable rides for your daily commute within the city.",
     Icon: IconCity,
   },
   {
     title: "PREMIUM RIDES",
-    desc: "Luxury vehicles and elevated comfort when you want more than the standard ride.",
-    Icon: IconStar,
+    desc: "Luxury vehicles and top-rated drivers for a more comfortable and stylish journey.",
+    Icon: IconDiamond,
   },
   {
     title: "DELIVERY",
-    desc: "Courier and parcel services with tracking from pickup through delivery.",
+    desc: "Fast and secure delivery of your packages and goods across the city.",
     Icon: IconBox,
   },
   {
     title: "BUSINESS",
-    desc: "Corporate travel solutions, reporting, and controls for teams on the move.",
+    desc: "Tailored solutions for your corporate travel and logistics needs.",
     Icon: IconBriefcase,
   },
 ];
@@ -95,7 +95,7 @@ export default function ServicesOverview() {
             className="w-full shrink-0 self-start text-center text-sm font-bold uppercase tracking-wide text-white hover:text-brand-orange md:w-auto md:self-auto md:text-left"
             {...m.buttonHoverProps}
           >
-            VIEW SERVICES
+            VIEW SERVICES →
           </MotionLink>
         </div>
 

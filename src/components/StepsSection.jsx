@@ -2,56 +2,54 @@ const steps = [
   {
     n: "01",
     title: "SIGN UP ONLINE",
-    body: "Complete a short application with your details. It only takes a few minutes.",
+    body: "Complete our quick online form with your basic details and vehicle information.",
   },
   {
     n: "02",
     title: "SUBMIT DOCUMENTS",
-    body: "Upload your license, ID, and vehicle paperwork for quick verification.",
+    body: "Upload your driver's license, vehicle registration, and a valid government ID.",
   },
   {
     n: "03",
     title: "GET APPROVED",
-    body: "Our team reviews your profile. Most drivers hear back within 24 hours.",
+    body: "Our team reviews your application within 48-72 hours and sends your approval.",
   },
   {
     n: "04",
     title: "START EARNING",
-    body: "Go online, accept trips, and watch your weekly earnings grow.",
+    body: "Download the driver app, go online, and start accepting trips immediately.",
   },
 ];
 
 export default function StepsSection() {
   return (
-    <section id="driver-steps" className="py-16 md:py-24">
-      <div className="mx-auto max-w-7xl px-6">
-        <p className="text-xs font-semibold uppercase tracking-[0.35em] text-brand-orange">
-          GET STARTED
+    <section id="driver-steps" className="bg-black py-16 md:py-24">
+      <div className="mx-auto max-w-7xl px-6 md:px-8">
+        <p className="text-left text-xs font-semibold uppercase tracking-[0.25em] text-[#A04020]">
+          GETTING STARTED
         </p>
-        <h2 className="mt-4 font-extrabold uppercase leading-[0.95] tracking-tighter text-white text-[clamp(1.75rem,4vw,2.75rem)]">
+        <h2 className="mt-4 max-w-5xl text-left font-extrabold uppercase leading-[0.92] tracking-tighter text-[clamp(1.75rem,4vw,2.75rem)] text-white">
           <span className="block">START DRIVING</span>
           <span className="block">IN 4 STEPS.</span>
         </h2>
 
-        <div className="mt-10 grid gap-8 sm:grid-cols-2 md:mt-14 md:gap-12 lg:grid-cols-4 lg:gap-12">
-          {steps.map((step) => (
-            <div key={step.n} className="relative min-h-[180px] pt-2">
-              <span
-                className="pointer-events-none absolute left-0 top-0 select-none font-extrabold leading-none text-white/[0.06] text-[clamp(3rem,12vw,5rem)]"
-                aria-hidden
-              >
-                {step.n}
-              </span>
-              <div className="relative z-10 pt-10">
-                <h3 className="font-extrabold uppercase leading-tight tracking-tight text-white text-base md:text-lg">
+        <div className="mt-8 border border-white/10 p-6 md:mt-10 md:p-8 lg:p-10">
+          <div className="grid gap-10 sm:grid-cols-2 md:gap-8 lg:grid-cols-4 lg:gap-12">
+            {steps.map((step) => (
+              <div key={step.n} className="text-left">
+                <p className="text-[clamp(2.25rem,5vw,3.5rem)] font-extrabold leading-none tracking-tight text-[#4A2C1F]">
+                  {step.n}
+                </p>
+                <div className="mt-3 h-px w-10 bg-brand-orange" aria-hidden />
+                <h3 className="mt-5 font-bold uppercase leading-tight tracking-tight text-base text-white md:text-lg">
                   {step.title}
                 </h3>
-                <p className="mt-4 text-sm leading-relaxed text-brand-gray">
+                <p className="mt-3 text-sm leading-relaxed text-[#808080]">
                   {step.body}
                 </p>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
